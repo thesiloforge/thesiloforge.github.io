@@ -23,14 +23,17 @@
             --text-primary: #E8EAED;
             --text-secondary: #8B92A0;
             --text-muted: #565D6B;
+            --accent-logstation: #00D9A3;
+            --accent-logstation-dim: #00D9A31A;
+            --accent-logstation-border: #00D9A340;
+            --accent-scriptcast: #14B8A6;
+            --accent-scriptcast-dim: #14B8A61A;
+            --accent-scriptcast-border: #14B8A640;
             --mono: 'JetBrains Mono', ui-monospace, monospace;
             --sans: 'Inter', -apple-system, sans-serif;
         }
-
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
         html { scroll-behavior: smooth; }
-
         body {
             background: var(--bg);
             color: var(--text-primary);
@@ -41,10 +44,8 @@
             flex-direction: column;
             line-height: 1.6;
         }
-
         a { color: inherit; text-decoration: none; }
-
-        /* ---------- Header ---------- */
+        a:focus-visible { outline: 2px solid var(--text-primary); outline-offset: 2px; }
         header {
             border-bottom: 1px solid var(--border);
             padding: 18px 24px;
@@ -80,8 +81,6 @@
         }
         nav a { transition: color 0.15s; }
         nav a:hover { color: var(--text-primary); }
-
-        /* ---------- Main ---------- */
         main {
             max-width: 780px;
             margin: 0 auto;
@@ -89,7 +88,6 @@
             flex-grow: 1;
             width: 100%;
         }
-
         .statusline {
             font-family: var(--mono);
             font-size: 12px;
@@ -107,7 +105,6 @@
             display: inline-block;
         }
         .statusline .sep { color: var(--border-strong); }
-
         h1 {
             font-family: var(--mono);
             font-size: clamp(28px, 4.6vw, 42px);
@@ -117,7 +114,6 @@
             margin-bottom: 22px;
         }
         h1 .dim { color: var(--text-secondary); font-weight: 400; }
-
         .subhead {
             font-size: 16px;
             line-height: 1.7;
@@ -125,8 +121,6 @@
             max-width: 580px;
             margin-bottom: 72px;
         }
-
-        /* ---------- Products ---------- */
         .section-label {
             font-family: var(--mono);
             font-size: 11px;
@@ -135,14 +129,12 @@
             letter-spacing: 0.08em;
             margin-bottom: 20px;
         }
-
         .products {
             display: flex;
             flex-direction: column;
             gap: 14px;
             margin-bottom: 88px;
         }
-
         .product-card {
             display: block;
             background: var(--surface);
@@ -170,11 +162,6 @@
             color: var(--text-primary);
             transform: translateX(3px);
         }
-        .product-card.placeholder {
-            opacity: 0.5;
-            cursor: default;
-        }
-
         .product-head {
             display: flex;
             align-items: center;
@@ -191,17 +178,22 @@
             font-family: var(--mono);
             font-size: 10px;
             font-weight: 500;
-            color: var(--text-muted);
             border: 1px solid var(--border-strong);
             padding: 2px 7px;
             border-radius: 3px;
             text-transform: uppercase;
             letter-spacing: 0.05em;
+            color: var(--text-muted);
         }
-        .product-tag.live {
-            color: #00D9A3;
-            border-color: #00D9A340;
-            background: #00D9A31A;
+        .product-tag.logstation {
+            color: var(--accent-logstation);
+            border-color: var(--accent-logstation-border);
+            background: var(--accent-logstation-dim);
+        }
+        .product-tag.scriptcast {
+            color: var(--accent-scriptcast);
+            border-color: var(--accent-scriptcast-border);
+            background: var(--accent-scriptcast-dim);
         }
         .product-desc {
             font-size: 14px;
@@ -209,8 +201,6 @@
             color: var(--text-secondary);
             max-width: 560px;
         }
-
-        /* ---------- About ---------- */
         .about {
             padding-top: 40px;
             border-top: 1px solid var(--border);
@@ -232,8 +222,6 @@
             padding: 1px 6px;
             border-radius: 4px;
         }
-
-        /* ---------- Footer ---------- */
         footer {
             border-top: 1px solid var(--border);
             padding: 28px 24px;
@@ -254,7 +242,6 @@
         }
         footer a { transition: color 0.15s; }
         footer a:hover { color: var(--text-secondary); }
-
         @media (max-width: 560px) {
             main { padding: 56px 20px 72px; }
             nav { gap: 14px; font-size: 11px; }
@@ -299,7 +286,7 @@
             <a href="/logstation/" class="product-card active">
                 <div class="product-head">
                     <span class="product-name">LogStation</span>
-                    <span class="product-tag live">Private beta</span>
+                    <span class="product-tag logstation">In active development</span>
                 </div>
                 <p class="product-desc">
                     A desktop log investigation workstation for Android bugreports and Logcat exports.
@@ -307,16 +294,17 @@
                 </p>
             </a>
 
-            <div class="product-card placeholder">
+            <a href="/scriptcast/" class="product-card active">
                 <div class="product-head">
-                    <span class="product-name">Next project</span>
-                    <span class="product-tag">In development</span>
+                    <span class="product-name">ScriptCast</span>
+                    <span class="product-tag scriptcast">In active development</span>
                 </div>
                 <p class="product-desc">
-                    Another local-first engineering tool is currently being forged.
-                    Details will be announced when the preview build is ready.
+                    A local-first audio drama production pipeline. Describe a full-cast dramatization
+                    in a single YAML script, and the pipeline produces a fully mixed, mastered,
+                    chaptered deliverable using local inference.
                 </p>
-            </div>
+            </a>
 
         </div>
     </section>
