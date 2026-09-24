@@ -1,0 +1,444 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Systems Engineering & Consulting — The Silo Forge</title>
+
+    <meta name="description" content="Senior systems engineering contracts. Desktop applications, hardware communication protocols, and offline execution engines.">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="The Silo Forge">
+    <meta property="og:title" content="Systems Engineering & Consulting — The Silo Forge">
+    <meta property="og:description" content="Direct B2B engineering contracts for desktop architecture, hardware protocols, and offline-first software.">
+    <meta property="og:url" content="https://thesiloforge.com/services/">
+    <meta property="og:image" content="https://thesiloforge.com/og-services.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="The Silo Forge — Engineering Services">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Systems Engineering & Consulting — The Silo Forge">
+    <meta name="twitter:description" content="Direct B2B engineering contracts for desktop architecture, hardware protocols, and offline-first software.">
+    <meta name="twitter:image" content="https://thesiloforge.com/og-services.png">
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0B0D10;
+            --surface: #12151A;
+            --surface-raised: #161A21;
+            --border: #232830;
+            --border-strong: #2E3540;
+            --accent: #3B82F6;
+            --accent-dim: #3B82F61A;
+            --accent-border: #3B82F640;
+            --text-primary: #E8EAED;
+            --text-secondary: #8B92A0;
+            --text-muted: #565D6B;
+            --mono: 'JetBrains Mono', ui-monospace, monospace;
+            --sans: 'Inter', -apple-system, sans-serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            background: var(--bg);
+            color: var(--text-primary);
+            font-family: var(--sans);
+            -webkit-font-smoothing: antialiased;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            line-height: 1.6;
+        }
+        a { color: inherit; text-decoration: none; }
+        a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+        header {
+            border-bottom: 1px solid var(--border);
+            padding: 18px 24px;
+            position: sticky;
+            top: 0;
+            background: rgba(11, 13, 16, 0.85);
+            backdrop-filter: blur(8px);
+            z-index: 10;
+        }
+        .header-inner {
+            max-width: 960px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+        }
+        .logo {
+            font-family: var(--mono);
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .logo .logo-icon {
+            display: block;
+            border-radius: 5px;
+            flex-shrink: 0;
+        }
+        .logo .brand { color: var(--text-secondary); transition: color 0.15s; }
+        .logo:hover .brand { color: var(--text-primary); }
+        nav.top-nav {
+            font-family: var(--mono);
+            font-size: 12px;
+            display: flex;
+            gap: 20px;
+            color: var(--text-secondary);
+        }
+        nav.top-nav a { transition: color 0.15s; }
+        nav.top-nav a:hover { color: var(--text-primary); }
+        main {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 72px 24px 96px;
+            flex-grow: 1;
+            width: 100%;
+        }
+        .statusline {
+            font-family: var(--mono);
+            font-size: 12px;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+        }
+        .statusline .dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent);
+            display: inline-block;
+            box-shadow: 0 0 8px var(--accent);
+        }
+        .statusline .sep { color: var(--border-strong); }
+        h1 {
+            font-family: var(--mono);
+            font-size: clamp(30px, 5vw, 44px);
+            font-weight: 600;
+            line-height: 1.25;
+            letter-spacing: -0.01em;
+            margin-bottom: 22px;
+        }
+        h1 .dim { color: var(--text-secondary); font-weight: 400; }
+        .subhead {
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            max-width: 620px;
+            margin-bottom: 56px;
+        }
+        section {
+            margin-bottom: 72px;
+            scroll-margin-top: 80px;
+        }
+        .section-label {
+            font-family: var(--mono);
+            font-size: 11px;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 18px;
+        }
+        h2 {
+            font-family: var(--mono);
+            font-size: 20px;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            margin-bottom: 14px;
+            color: var(--text-primary);
+        }
+        .section-intro {
+            font-size: 14.5px;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            max-width: 620px;
+            margin-bottom: 28px;
+        }
+        .services-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+        .service-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 22px 24px;
+        }
+        .service-card h3 {
+            font-family: var(--mono);
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+        .service-card p {
+            font-size: 13.5px;
+            line-height: 1.65;
+            color: var(--text-secondary);
+            margin-bottom: 14px;
+        }
+        .tech-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        .tech-list code {
+            font-family: var(--mono);
+            font-size: 11px;
+            color: var(--text-secondary);
+            background: var(--surface-raised);
+            border: 1px solid var(--border);
+            padding: 2px 7px;
+            border-radius: 4px;
+        }
+        .terms-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
+        }
+        .term-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 20px;
+        }
+        .term-card h3 {
+            font-family: var(--mono);
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+        .term-card p {
+            font-size: 13px;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+        .contact-box {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 28px;
+        }
+        .contact-box p {
+            font-size: 14px;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+        .contact-email {
+            font-family: var(--mono);
+            font-size: 14px;
+            display: inline-block;
+            background: var(--surface-raised);
+            border: 1px solid var(--border-strong);
+            padding: 10px 18px;
+            border-radius: 6px;
+            color: var(--accent);
+            transition: border-color 0.15s;
+        }
+        .contact-email:hover {
+            border-color: var(--accent);
+        }
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 28px 24px;
+        }
+        .footer-inner {
+            max-width: 960px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        footer p, footer a {
+            font-family: var(--mono);
+            font-size: 11.5px;
+            color: var(--text-muted);
+        }
+        footer a { transition: color 0.15s; }
+        footer a:hover { color: var(--text-secondary); }
+        @media (max-width: 600px) {
+            .terms-grid { grid-template-columns: 1fr; }
+            main { padding: 56px 20px 72px; }
+            nav.top-nav { gap: 14px; font-size: 11px; }
+            .footer-inner { justify-content: center; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-inner">
+        <a href="/" class="logo">
+            <img src="/favicon.svg" alt="" class="logo-icon" width="22" height="22">
+            <span class="brand">the_silo_forge</span>
+            <span style="color: var(--text-muted);">/</span>
+            <span>services</span>
+        </a>
+        <nav class="top-nav">
+            <a href="#areas">Focus Areas</a>
+            <a href="#terms">Engagement Terms</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <div class="statusline">
+        <span class="dot"></span>INDEPENDENT CONTRACTOR <span class="sep">/</span> B2B ONLY <span class="sep">/</span> W-8BEN
+    </div>
+
+    <h1>Systems Engineering.<br><span class="dim">Direct technical execution without layers.</span></h1>
+
+    <p class="subhead">
+        Independent engineering contracts for desktop architecture, hardware protocols,
+        and offline execution environments. Direct engagement with engineering leadership.
+    </p>
+
+    <section id="areas">
+        <div class="section-label">Focus Areas</div>
+        <h2>Engineering Capabilities</h2>
+        <p class="section-intro">
+            Specialized implementation work focused on desktop applications, machine communication, and local runtimes.
+        </p>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Desktop Systems & Cross-Platform UI</h3>
+                <p>
+                    Full lifecycle development of desktop applications using C#/.NET with Avalonia UI, WPF, or JavaFX.
+                    Structure includes decoupled MVVM design, background worker dispatch, custom UI controls, and memory profiling for long-running processes.
+                </p>
+                <div class="tech-list">
+                    <code>.NET 8 / C#</code>
+                    <code>Avalonia UI</code>
+                    <code>WPF</code>
+                    <code>JavaFX</code>
+                    <code>MVVM</code>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <h3>Hardware Interfacing & Machine Protocols</h3>
+                <p>
+                    Communication drivers for physical hardware, industrial machinery, and payment devices.
+                    Implementation covers byte-level serial protocols (RS-232, RS-485, USB HID), binary command framing, checksum calculation, and unattended kiosk control.
+                </p>
+                <div class="tech-list">
+                    <code>Serial (RS-232/485)</code>
+                    <code>CNC Integration</code>
+                    <code>Unattended Kiosks</code>
+                    <code>Payment Peripherals</code>
+                    <code>Binary Framing</code>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <h3>Offline Processing Pipelines & Media Engines</h3>
+                <p>
+                    Local data processing systems that run without cloud connectivity.
+                    Includes memory-mapped file parsers for multi-gigabyte dumps, headless process orchestration (FFmpeg/FFprobe filter trees), and WebSocket client integrations with local runtime services.
+                </p>
+                <div class="tech-list">
+                    <code>FFmpeg Filter Graphs</code>
+                    <code>EBU R128 Loudness</code>
+                    <code>WebSocket Clients</code>
+                    <code>Local File Parsers</code>
+                    <code>Offline Runtimes</code>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="terms">
+        <div class="section-label">Engagement Terms</div>
+        <h2>Operating Model</h2>
+        <p class="section-intro">
+            B2B engagements structured around direct technical deliverables and async workflows.
+        </p>
+
+        <div class="terms-grid">
+            <div class="term-card">
+                <h3>Legal & Billing</h3>
+                <p>
+                    Direct international contractor agreements (W-8BEN compliant for US clients, standard B2B services invoice for EU and global entities). Invoicing by milestone or fixed-scope block.
+                </p>
+            </div>
+
+            <div class="term-card">
+                <h3>Communication</h3>
+                <p>
+                    Primarily asynchronous via issue trackers, written technical proposals, Git reviews, and clear documentation. No recurring standups or committee overhead.
+                </p>
+            </div>
+
+            <div class="term-card">
+                <h3>Direct Engineering</h3>
+                <p>
+                    Technical work performed directly by a senior engineer. No handoffs to junior developers, subcontractors, or non-technical account managers.
+                </p>
+            </div>
+
+            <div class="term-card">
+                <h3>Deliverables & Code</h3>
+                <p>
+                    Clean, documented source code following SOLID principles. Automated test coverage for parsers, state machines, and hardware communication layers.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="section-label">Contact</div>
+        <h2>Initiate a Technical Inquiry</h2>
+        <div class="contact-box">
+            <p>
+                Send technical requirements, target repository context, or scope outlines directly.
+                Responses are handled directly by the engineering lead.
+            </p>
+            <a href="mailto:contact@thesiloforge.com?subject=Contract%20Engineering%20Inquiry" class="contact-email">
+                contact@thesiloforge.com
+            </a>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="footer-inner">
+        <p>
+            <a href="/">the_silo_forge</a> / services — <span id="year"></span>
+        </p>
+        <a href="mailto:contact@thesiloforge.com">contact@thesiloforge.com</a>
+    </div>
+</footer>
+
+<script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
