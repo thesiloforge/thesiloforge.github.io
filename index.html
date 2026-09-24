@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Silo Forge — Local-first engineering tools</title>
 
-    <meta name="description" content="Independent workshop building local-first, offline engineering tools. No cloud, no telemetry, no third parties.">
+    <meta name="description" content="Independent workshop building local-first, offline engineering tools and systems. No cloud dependencies, no telemetry, no third parties.">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="The Silo Forge">
     <meta property="og:title" content="The Silo Forge — Local-first engineering tools">
-    <meta property="og:description" content="Independent workshop building local-first, offline engineering tools. No cloud, no telemetry, no third parties.">
+    <meta property="og:description" content="Independent workshop building local-first, offline engineering tools and systems. No cloud dependencies, no telemetry, no third parties.">
     <meta property="og:url" content="https://thesiloforge.com/">
     <meta property="og:image" content="https://thesiloforge.com/og-hub.png">
     <meta property="og:image:width" content="1200">
@@ -61,6 +61,9 @@
             --accent-scriptcast: #14B8A6;
             --accent-scriptcast-dim: #14B8A61A;
             --accent-scriptcast-border: #14B8A640;
+            --accent-services: #3B82F6;
+            --accent-services-dim: #3B82F61A;
+            --accent-services-border: #3B82F640;
             --mono: 'JetBrains Mono', ui-monospace, monospace;
             --sans: 'Inter', -apple-system, sans-serif;
         }
@@ -136,7 +139,6 @@
             background: var(--text-muted);
             display: inline-block;
         }
-        .statusline .sep { color: var(--border-strong); }
         h1 {
             font-family: var(--mono);
             font-size: clamp(28px, 4.6vw, 42px);
@@ -150,7 +152,7 @@
             font-size: 16px;
             line-height: 1.7;
             color: var(--text-secondary);
-            max-width: 580px;
+            max-width: 620px;
             margin-bottom: 72px;
         }
         .section-label {
@@ -227,11 +229,33 @@
             border-color: var(--accent-scriptcast-border);
             background: var(--accent-scriptcast-dim);
         }
+        .product-tag.services {
+            color: var(--accent-services);
+            border-color: var(--accent-services-border);
+            background: var(--accent-services-dim);
+        }
         .product-desc {
             font-size: 14px;
             line-height: 1.6;
             color: var(--text-secondary);
-            max-width: 560px;
+            max-width: 580px;
+            margin-bottom: 14px;
+        }
+        .product-meta {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--mono);
+            font-size: 11px;
+            color: var(--text-muted);
+            flex-wrap: wrap;
+        }
+        .product-meta code {
+            color: var(--text-secondary);
+            background: var(--surface-raised);
+            border: 1px solid var(--border);
+            padding: 2px 6px;
+            border-radius: 3px;
         }
         .about {
             padding-top: 40px;
@@ -292,7 +316,8 @@
             <span><span class="prompt">/</span> the_silo_forge</span>
         </a>
         <nav>
-            <a href="#products">Products</a>
+            <a href="#work">Software</a>
+            <a href="/services/">Services</a>
             <a href="#about">About</a>
             <a href="mailto:contact@thesiloforge.com">Contact</a>
         </nav>
@@ -304,38 +329,58 @@
         <span class="dot"></span>INDEPENDENT SOFTWARE WORKSHOP
     </div>
 
-    <h1>Local-first tools.<br><span class="dim">Built for engineers who value their data.</span></h1>
+    <h1>Local-first tools.<br><span class="dim">Built for engineers who keep data on their own metal.</span></h1>
 
     <p class="subhead">
-        The Silo Forge is an independent workshop building offline-capable engineering software.
-        No cloud dependencies, no telemetry, no third parties between you and your work.
+        The Silo Forge is an engineering workshop building offline desktop software and specialized systems.
+        No cloud infrastructure, no telemetry pipelines, and no third-party accounts between you and your work.
     </p>
 
-    <section id="products">
-        <div class="section-label">Products</div>
+    <section id="work">
+        <div class="section-label">Software & Systems</div>
         <div class="products">
 
             <a href="/logstation/" class="product-card active">
                 <div class="product-head">
                     <span class="product-name">LogStation</span>
-                    <span class="product-tag logstation">In active development</span>
+                    <span class="product-tag logstation">Desktop Application</span>
                 </div>
                 <p class="product-desc">
-                    A desktop log investigation workstation for Android bugreports and Logcat exports.
-                    Find the root cause without uploading a single byte to the cloud.
+                    Desktop investigation workstation for raw Android bugreports and Logcat dumps.
+                    Indexes multi-gigabyte log trees in memory without uploading files to third-party dashboards.
                 </p>
+                <div class="product-meta">
+                    <code>C#</code> <code>Avalonia</code> <code>Multi-GB In-Memory Index</code>
+                </div>
             </a>
 
             <a href="/scriptcast/" class="product-card active">
                 <div class="product-head">
                     <span class="product-name">ScriptCast</span>
-                    <span class="product-tag scriptcast">In active development</span>
+                    <span class="product-tag scriptcast">Desktop Workstation</span>
                 </div>
                 <p class="product-desc">
-                    A local-first audio drama production pipeline. Describe a full-cast dramatization
-                    in a single YAML script, and the pipeline produces a fully mixed, mastered,
-                    chaptered deliverable using local inference.
+                    Desktop production workstation for full-cast audio dramas. Parses structured YAML scripts
+                    into local ComfyUI voice synthesis pipelines, mixes multi-stem timelines with parametric
+                    acoustic filters, and masters deliverables to EBU R128 / BBC broadcast standards.
                 </p>
+                <div class="product-meta">
+                    <code>C# / Avalonia</code> <code>ComfyUI WebSocket Client</code> <code>FFmpeg / EBU R128</code> <code>ATL Tagging</code>
+                </div>
+            </a>
+
+            <a href="/services/" class="product-card active">
+                <div class="product-head">
+                    <span class="product-name">Systems Engineering & Consulting</span>
+                    <span class="product-tag services">B2B Contract</span>
+                </div>
+                <p class="product-desc">
+                    Senior engineering for mission-critical desktop systems, hardware integration (serial protocols, CNC, kiosks),
+                    and offline-first architectures. Direct contracts via W-8BEN.
+                </p>
+                <div class="product-meta">
+                    <code>.NET / C#</code> <code>Hardware Interfacing</code> <code>Async Execution</code>
+                </div>
             </a>
 
         </div>
@@ -344,13 +389,13 @@
     <section id="about" class="about">
         <div class="section-label">About</div>
         <p>
-            The Silo Forge builds <code>local-first</code>, <code>offline-capable</code> desktop software
-            for technical audiences. Every tool is designed to run entirely on your machine —
-            no accounts, no servers, no data leaving your drive.
+            The Silo Forge develops <code>local-first</code> desktop software for technical environments.
+            Applications are distributed as native binaries that run entirely on your local storage and memory.
+            Your logs, source files, and binaries never leave your machine.
         </p>
         <p>
-            Tools are distributed as perpetual licenses with optional upgrade plans,
-            the same model used by professional desktop IDEs. You buy once, the software stays yours.
+            Standalone tools use a perpetual license model. Buy a license once and keep the binary working indefinitely,
+            with no phone-home mechanisms or mandatory subscriptions.
         </p>
     </section>
 </main>
