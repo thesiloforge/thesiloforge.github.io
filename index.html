@@ -5,13 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Silo Forge — Local-first engineering tools</title>
 
-    <meta name="description" content="Independent workshop building local-first, offline engineering tools and systems. No cloud dependencies, no telemetry, no third parties.">
+    <meta name="description"
+          content="Independent workshop building local-first, offline engineering tools and systems. No cloud dependencies, no telemetry, no third parties.">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="The Silo Forge">
     <meta property="og:title" content="The Silo Forge — Local-first engineering tools">
-    <meta property="og:description" content="Independent workshop building local-first, offline engineering tools and systems. No cloud dependencies, no telemetry, no third parties.">
+    <meta property="og:description"
+          content="Independent workshop building local-first, offline engineering tools and systems. No cloud dependencies, no telemetry, no third parties.">
     <meta property="og:url" content="https://thesiloforge.com/">
     <meta property="og:image" content="https://thesiloforge.com/og-hub.png">
     <meta property="og:image:width" content="1200">
@@ -22,7 +24,8 @@
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="The Silo Forge — Local-first engineering tools">
-    <meta name="twitter:description" content="Independent software workshop building local-first, offline-capable engineering tools.">
+    <meta name="twitter:description"
+          content="Independent software workshop building local-first, offline-capable engineering tools.">
     <meta name="twitter:image" content="https://thesiloforge.com/og-hub.png">
 
     <!-- Structured data -->
@@ -44,7 +47,8 @@
     <link rel="manifest" href="/site.webmanifest">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500&display=swap"
+          rel="stylesheet">
     <style>
         :root {
             --bg: #0B0D10;
@@ -67,8 +71,17 @@
             --mono: 'JetBrains Mono', ui-monospace, monospace;
             --sans: 'Inter', -apple-system, sans-serif;
         }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             background: var(--bg);
             color: var(--text-primary);
@@ -79,12 +92,22 @@
             flex-direction: column;
             line-height: 1.6;
         }
-        a { color: inherit; text-decoration: none; }
-        a:focus-visible { outline: 2px solid var(--text-primary); outline-offset: 2px; }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        a:focus-visible {
+            outline: 2px solid var(--text-primary);
+            outline-offset: 2px;
+        }
+
         header {
             border-bottom: 1px solid var(--border);
             padding: 18px 24px;
         }
+
         .header-inner {
             max-width: 960px;
             margin: 0 auto;
@@ -92,6 +115,7 @@
             justify-content: space-between;
             align-items: center;
         }
+
         .logo {
             font-family: var(--mono);
             font-size: 15px;
@@ -101,12 +125,17 @@
             align-items: center;
             gap: 10px;
         }
-        .logo .prompt { color: var(--text-muted); }
+
+        .logo .prompt {
+            color: var(--text-muted);
+        }
+
         .logo .logo-icon {
             display: block;
             flex-shrink: 0;
             border-radius: 5px;
         }
+
         nav {
             font-family: var(--mono);
             font-size: 12px;
@@ -114,8 +143,15 @@
             gap: 22px;
             color: var(--text-secondary);
         }
-        nav a { transition: color 0.15s; }
-        nav a:hover { color: var(--text-primary); }
+
+        nav a {
+            transition: color 0.15s;
+        }
+
+        nav a:hover {
+            color: var(--text-primary);
+        }
+
         main {
             max-width: 780px;
             margin: 0 auto;
@@ -123,6 +159,7 @@
             flex-grow: 1;
             width: 100%;
         }
+
         .statusline {
             font-family: var(--mono);
             font-size: 12px;
@@ -132,6 +169,7 @@
             gap: 10px;
             margin-bottom: 32px;
         }
+
         .statusline .dot {
             width: 6px;
             height: 6px;
@@ -139,6 +177,7 @@
             background: var(--text-muted);
             display: inline-block;
         }
+
         h1 {
             font-family: var(--mono);
             font-size: clamp(28px, 4.6vw, 42px);
@@ -147,7 +186,12 @@
             letter-spacing: -0.01em;
             margin-bottom: 22px;
         }
-        h1 .dim { color: var(--text-secondary); font-weight: 400; }
+
+        h1 .dim {
+            color: var(--text-secondary);
+            font-weight: 400;
+        }
+
         .subhead {
             font-size: 16px;
             line-height: 1.7;
@@ -155,6 +199,7 @@
             max-width: 620px;
             margin-bottom: 72px;
         }
+
         .section-label {
             font-family: var(--mono);
             font-size: 11px;
@@ -163,12 +208,14 @@
             letter-spacing: 0.08em;
             margin-bottom: 20px;
         }
+
         .products {
             display: flex;
             flex-direction: column;
             gap: 14px;
             margin-bottom: 88px;
         }
+
         .product-card {
             display: block;
             background: var(--surface);
@@ -178,10 +225,12 @@
             transition: border-color 0.15s, background 0.15s;
             position: relative;
         }
+
         .product-card.active:hover {
             border-color: var(--border-strong);
             background: var(--surface-raised);
         }
+
         .product-card.active::after {
             content: '→';
             position: absolute;
@@ -192,22 +241,26 @@
             color: var(--text-muted);
             transition: transform 0.15s, color 0.15s;
         }
+
         .product-card.active:hover::after {
             color: var(--text-primary);
             transform: translateX(3px);
         }
+
         .product-head {
             display: flex;
             align-items: center;
             gap: 12px;
             margin-bottom: 8px;
         }
+
         .product-name {
             font-family: var(--mono);
             font-size: 15px;
             font-weight: 600;
             color: var(--text-primary);
         }
+
         .product-tag {
             font-family: var(--mono);
             font-size: 10px;
@@ -219,21 +272,25 @@
             letter-spacing: 0.05em;
             color: var(--text-muted);
         }
+
         .product-tag.logstation {
             color: var(--accent-logstation);
             border-color: var(--accent-logstation-border);
             background: var(--accent-logstation-dim);
         }
+
         .product-tag.scriptcast {
             color: var(--accent-scriptcast);
             border-color: var(--accent-scriptcast-border);
             background: var(--accent-scriptcast-dim);
         }
+
         .product-tag.services {
             color: var(--accent-services);
             border-color: var(--accent-services-border);
             background: var(--accent-services-dim);
         }
+
         .product-desc {
             font-size: 14px;
             line-height: 1.6;
@@ -241,6 +298,7 @@
             max-width: 580px;
             margin-bottom: 14px;
         }
+
         .product-meta {
             display: flex;
             align-items: center;
@@ -250,6 +308,7 @@
             color: var(--text-muted);
             flex-wrap: wrap;
         }
+
         .product-meta code {
             color: var(--text-secondary);
             background: var(--surface-raised);
@@ -257,10 +316,12 @@
             padding: 2px 6px;
             border-radius: 3px;
         }
+
         .about {
             padding-top: 40px;
             border-top: 1px solid var(--border);
         }
+
         .about p {
             font-size: 14.5px;
             line-height: 1.75;
@@ -268,7 +329,11 @@
             max-width: 620px;
             margin-bottom: 18px;
         }
-        .about p:last-child { margin-bottom: 0; }
+
+        .about p:last-child {
+            margin-bottom: 0;
+        }
+
         .about code {
             font-family: var(--mono);
             font-size: 13px;
@@ -278,10 +343,12 @@
             padding: 1px 6px;
             border-radius: 4px;
         }
+
         footer {
             border-top: 1px solid var(--border);
             padding: 28px 24px;
         }
+
         .footer-inner {
             max-width: 960px;
             margin: 0 auto;
@@ -291,19 +358,44 @@
             gap: 16px;
             flex-wrap: wrap;
         }
+
         footer p, footer a {
             font-family: var(--mono);
             font-size: 11.5px;
             color: var(--text-muted);
         }
-        footer a { transition: color 0.15s; }
-        footer a:hover { color: var(--text-secondary); }
+
+        footer a {
+            transition: color 0.15s;
+        }
+
+        footer a:hover {
+            color: var(--text-secondary);
+        }
+
         @media (max-width: 560px) {
-            main { padding: 56px 20px 72px; }
-            nav { gap: 14px; font-size: 11px; }
-            .product-card { padding: 20px 20px; }
-            .product-card.active::after { top: 20px; right: 20px; }
-            .footer-inner { justify-content: center; text-align: center; }
+            main {
+                padding: 56px 20px 72px;
+            }
+
+            nav {
+                gap: 14px;
+                font-size: 11px;
+            }
+
+            .product-card {
+                padding: 20px 20px;
+            }
+
+            .product-card.active::after {
+                top: 20px;
+                right: 20px;
+            }
+
+            .footer-inner {
+                justify-content: center;
+                text-align: center;
+            }
         }
     </style>
 </head>
@@ -365,7 +457,8 @@
                     acoustic filters, and masters deliverables to EBU R128 / BBC broadcast standards.
                 </p>
                 <div class="product-meta">
-                    <code>C# / Avalonia</code> <code>ComfyUI WebSocket Client</code> <code>FFmpeg / EBU R128</code> <code>ATL Tagging</code>
+                    <code>C# / Avalonia</code> <code>ComfyUI WebSocket Client</code> <code>FFmpeg / EBU R128</code>
+                    <code>ATL Tagging</code>
                 </div>
             </a>
 
@@ -375,7 +468,8 @@
                     <span class="product-tag services">B2B Contract</span>
                 </div>
                 <p class="product-desc">
-                    Senior engineering for mission-critical desktop systems, hardware integration (serial protocols, CNC, kiosks),
+                    Senior engineering for mission-critical desktop systems, hardware integration (serial protocols,
+                    CNC, kiosks),
                     and offline-first architectures. Direct contracts via W-8BEN.
                 </p>
                 <div class="product-meta">
