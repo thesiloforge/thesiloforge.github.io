@@ -22,7 +22,7 @@
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="ScriptCast — Local-first audio drama production pipeline">
-    <meta name="twitter:description" content="Turn a single YAML script into a fully mixed, mastered, chaptered audio drama. Local, deterministic, offline.">
+    <meta name="twitter:description" content="Turn a single YAML script into a fully mixed, mastered, chaptered audio drama. Local, offline.">
     <meta name="twitter:image" content="https://thesiloforge.com/og-scriptcast.png">
 
     <!-- Structured data -->
@@ -311,34 +311,6 @@
             max-width: 620px;
             margin-bottom: 32px;
         }
-        .problem-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 14px;
-            margin-top: 24px;
-        }
-        .problem-card {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 20px;
-        }
-        .problem-card h3 {
-            font-family: var(--mono);
-            font-size: 13px;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .problem-card h3 .icon { font-size: 14px; color: var(--text-muted); }
-        .problem-card p {
-            font-size: 13.5px;
-            line-height: 1.65;
-            color: var(--text-secondary);
-        }
         .pipeline-steps {
             display: flex;
             flex-direction: column;
@@ -620,7 +592,6 @@
         footer a { transition: color 0.15s; }
         footer a:hover { color: var(--text-secondary); }
         @media (max-width: 680px) {
-            .problem-grid { grid-template-columns: 1fr; }
             .audience-grid { grid-template-columns: 1fr; }
         }
         @media (max-width: 560px) {
@@ -682,77 +653,84 @@
             <span class="tab active">the_empty_house.yaml <span class="badge">production script</span></span>
         </div>
         <div class="code-body"><span class="key">name</span>: <span class="str">"The Empty House"</span>
-<span class="key">metadata</span>:
-  <span class="key">title</span>: <span class="str">"The Empty House"</span>
-  <span class="key">author</span>: <span class="str">"Algernon Blackwood"</span>
-  <span class="key">year</span>: <span class="str">"1906"</span>
 
-<span class="key">characters</span>:
-  - <span class="key">id</span>: <span class="str">shorthouse</span>
-    <span class="key">file</span>: <span class="str">"voice_shorthouse.flac"</span>
-  - <span class="key">id</span>: <span class="str">narrator</span>
-    <span class="key">file</span>: <span class="str">"voice_narrator.flac"</span>
+            <span class="key">mastering</span>:
+            <span class="key">targetLufs</span>: <span class="num">-23.0</span>                   <span class="cmt"># EBU R128 broadcast loudness</span>
+            <span class="key">truePeakDb</span>: <span class="num">-1.5</span>                    <span class="cmt"># True-peak ceiling for lossy encoders</span>
+            <span class="key">loudnessRange</span>: <span class="num">9.0</span>                  <span class="cmt"># LRA target for speech dynamics</span>
+            <span class="key">limiterCeilingDb</span>: <span class="num">-1.0</span>
 
-<span class="key">ambientCues</span>:
-  - <span class="key">fromLine</span>: <span class="num">1</span>
-    <span class="key">file</span>: <span class="str">"ambience_street.mp3"</span>
-    <span class="key">gainDb</span>: <span class="num">-20.0</span>
-    <span class="key">duckUnderDialogue</span>: <span class="num">true</span>
+            <span class="key">metadata</span>:
+            <span class="key">title</span>: <span class="str">"The Empty House"</span>
+            <span class="key">author</span>: <span class="str">"Algernon Blackwood"</span>
+            <span class="key">year</span>: <span class="str">"1906"</span>
 
-<span class="key">dialogue</span>:
-  - <span class="key">speaker</span>: <span class="str">"shorthouse"</span>
-    <span class="key">instruction</span>: <span class="str">"Breathless panic"</span>
-    <span class="key">text</span>: <span class="str">"Get a light—quick!"</span>
-    <span class="key">pan</span>: <span class="num">-0.30</span>
-    <span class="key">environment</span>: <span class="str">"hall"</span></div>
+            <span class="key">characters</span>:
+            - <span class="key">id</span>: <span class="str">shorthouse</span>
+            <span class="key">file</span>: <span class="str">"voice_shorthouse.flac"</span>
+            - <span class="key">id</span>: <span class="str">narrator</span>
+            <span class="key">file</span>: <span class="str">"voice_narrator.flac"</span>
+
+            <span class="key">ambientCues</span>:
+            - <span class="key">fromLine</span>: <span class="num">1</span>
+            <span class="key">file</span>: <span class="str">"ambience_street.mp3"</span>
+            <span class="key">gainDb</span>: <span class="num">-20.0</span>
+            <span class="key">duckUnderDialogue</span>: <span class="num">true</span>
+
+            <span class="key">dialogue</span>:
+            - <span class="key">speaker</span>: <span class="str">"shorthouse"</span>
+            <span class="key">instruction</span>: <span class="str">"Breathless panic"</span>
+            <span class="key">text</span>: <span class="str">"Get a light—quick!"</span>
+            <span class="key">pan</span>: <span class="num">-0.30</span>
+            <span class="key">environment</span>: <span class="str">"hall"</span></div>
     </div>
     <p class="code-caption">
-        One YAML file describes the full production: characters, dialogue, ambience, music, spatial positioning, mastering.
-        The pipeline produces the audio drama.
+        One YAML file configures the production: characters, dialogue, ambience, music, spatial positioning, mastering.
+        The pipeline compiles the audio deliverable.
     </p>
 
     <section id="pipeline">
         <div class="section-label">Pipeline</div>
-        <h2>From script to master, deterministically.</h2>
+        <h2>From script to master file.</h2>
         <p class="section-intro">
-            Every stage is declarative, reproducible, and runs entirely on your machine. No API keys,
-            no job queues in someone else's cloud, no per-render costs.
+            Every stage runs locally on your machine from a single command or UI action. No API keys,
+            no cloud queues, no per-minute compute fees.
         </p>
 
         <div class="pipeline-steps">
             <div class="pipeline-step">
                 <div class="pipeline-num">1</div>
                 <div class="pipeline-text">
-                    <h3>Parse</h3>
-                    <p>ScriptCast reads the YAML script and validates every parameter — pan ranges, reverb mix, ducking ratios, chapter progression, character registration.</p>
+                    <h3>Parse & Validate</h3>
+                    <p>Reads the YAML script and validates bounds: pan ranges, reverb levels, ducking decay limits, chapter order, and character voice mappings.</p>
                 </div>
             </div>
             <div class="pipeline-step">
                 <div class="pipeline-num">2</div>
                 <div class="pipeline-text">
                     <h3>Render</h3>
-                    <p>The orchestrator dispatches each line and cue to local ComfyUI via HTTP and WebSocket, injecting text, instructions, seeds, and output paths into the workflow graph.</p>
+                    <p>Sends lines and cues to a local ComfyUI instance over HTTP and WebSocket, injecting prompts, reference voices, seeds, and output file paths into the generation graph.</p>
                 </div>
             </div>
             <div class="pipeline-step">
                 <div class="pipeline-num">3</div>
                 <div class="pipeline-text">
-                    <h3>Normalize</h3>
-                    <p>Every stem is measured (EBU R128) and normalized to its category reference level. Measurements are cached in a per-project YAML file, so subsequent runs skip already-normalized files.</p>
+                    <h3>Normalize Stems</h3>
+                    <p>Measures stems under EBU R128 and adjusts them to fixed internal levels (Dialogue: -20 LUFS, Music: -28 LUFS, Ambience: -40 LUFS, SFX: -22 LUFS). Caches measurements in <code>lufs.yaml</code> to skip unchanged files.</p>
                 </div>
             </div>
             <div class="pipeline-step">
                 <div class="pipeline-num">4</div>
                 <div class="pipeline-text">
-                    <h3>Mix</h3>
-                    <p>A deterministic ffmpeg filter graph assembles dialogue, ambience, music, and SFX with spatial positioning, environment reverb, sidechain ducking, and an EBU R128 loudness pass on the master bus.</p>
+                    <h3>Mix & Master</h3>
+                    <p>Builds a complex ffmpeg filter graph for spatial placement, environment reverb, frame-evaluated ducking envelopes, two-pass loudness normalization, and peak limiting.</p>
                 </div>
             </div>
             <div class="pipeline-step">
                 <div class="pipeline-num">5</div>
                 <div class="pipeline-text">
                     <h3>Package</h3>
-                    <p>The final master is delivered as FLAC, MP3 with ID3v2 tags, and M4B with chapters and cover art — ready to upload to any distribution platform.</p>
+                    <p>Writes distribution files: 24-bit FLAC master, MP3 with ID3v2 tags, and M4B audiobook with chapters, metadata, and embedded artwork.</p>
                 </div>
             </div>
         </div>
@@ -760,10 +738,10 @@
 
     <section id="capabilities">
         <div class="section-label">Capabilities</div>
-        <h2>Studio-grade DSP, engineered in code.</h2>
+        <h2>Signal processing defined in script.</h2>
         <p class="section-intro">
-            Every production decision is declared in the script. Every acoustic effect is computed
-            by deterministic filters. Nothing relies on post-hoc tweaking in a DAW.
+            Audio properties are declared directly in text. The pipeline calculates DSP filters
+            and renders the tracks without manual timeline slicing in a DAW.
         </p>
 
         <div class="features">
@@ -772,8 +750,8 @@
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
                 </div>
                 <div class="feature-text">
-                    <h3>Declarative production script</h3>
-                    <p>Characters, dialogue, ambience, music, SFX, spatial positioning, mastering — everything lives in a single versionable YAML file. Diffs and code review work the same as with source code.</p>
+                    <h3>Plain text production scripts</h3>
+                    <p>Characters, dialogue lines, background audio, music cues, Foley, pan curves, and mastering targets live in a single versionable YAML file tracked via git.</p>
                 </div>
             </div>
             <div class="feature-row">
@@ -781,8 +759,8 @@
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 2 3 7v10l9 5 9-5V7l-9-5Z"/><path d="M3 7l9 5 9-5M12 12v10"/></svg>
                 </div>
                 <div class="feature-text">
-                    <h3>Deterministic local orchestration</h3>
-                    <p>ComfyUI workflows are mutated in memory and dispatched via HTTP and WebSocket to a local instance. Seed values, text, and output paths are injected per line and per cue — no external API calls anywhere.</p>
+                    <h3>Local workflow dispatch</h3>
+                    <p>Mutates workflow JSON templates in memory and controls local ComfyUI execution via WebSocket. Seeds, instructions, and target directories are injected on each request.</p>
                 </div>
             </div>
             <div class="feature-row">
@@ -790,8 +768,8 @@
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 12h3l3-8 4 16 3-8h5"/></svg>
                 </div>
                 <div class="feature-text">
-                    <h3>Multi-model synthesis</h3>
-                    <p>Supports multiple local voice and audio generation backends through a transformer registry. Swap models by changing the workflow file, without touching the pipeline.</p>
+                    <h3>Model transformers</h3>
+                    <p>Decoupled workflow transformers support multiple TTS and audio engines. Switch synthesis backends by swapping workflow templates without modifying the parsing core.</p>
                 </div>
             </div>
             <div class="feature-row">
@@ -799,8 +777,8 @@
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18"/></svg>
                 </div>
                 <div class="feature-text">
-                    <h3>Spatial audio by construction</h3>
-                    <p>Pan, distance, occlusion, and pace are first-class parameters on every dialogue line and cue. Environment presets — room, hall, cave, telephone — apply parametric reverb filters computed in the graph.</p>
+                    <h3>Spatial and acoustic filtering</h3>
+                    <p>Pan, distance roll-off, occlusion, and tempo adjustments are configured per line. Environment tags (room, hall, cave, telephone) generate parametric delay and reverb chains directly inside ffmpeg.</p>
                 </div>
             </div>
             <div class="feature-row">
@@ -808,8 +786,8 @@
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M13 2 3 14h8l-1 8 10-12h-8l1-8Z"/></svg>
                 </div>
                 <div class="feature-text">
-                    <h3>Deterministic sidechain ducking</h3>
-                    <p>Instead of ffmpeg's opaque <code>sidechaincompress</code>, ScriptCast builds an explicit control envelope from the dialogue track and multiplies the target. The applied attenuation matches the authored <code>duckAmountDb</code> exactly.</p>
+                    <h3>Timeline ducking without sidechain pumping</h3>
+                    <p>Replaces reactive sidechain compressors with mathematical volume envelopes evaluated per audio frame against speech boundaries. Hysteresis thresholds hold the ducked state across short pauses to avoid fluttering.</p>
                 </div>
             </div>
             <div class="feature-row">
@@ -817,8 +795,8 @@
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 4v5"/></svg>
                 </div>
                 <div class="feature-text">
-                    <h3>Chaptered, tagged deliverables</h3>
-                    <p>Outputs include FLAC masters, MP3 with ID3v2 metadata, and M4B audiobook containers with chapters, cover art, and <code>media_type=2</code> — ready for direct upload.</p>
+                    <h3>Tagged distribution packages</h3>
+                    <p>Generates FLAC masters, MP3 with ID3v2 metadata, and M4B containers with chapter marks, cover artwork, and audiobook container flags without redundant transcoding.</p>
                 </div>
             </div>
         </div>
@@ -826,10 +804,9 @@
 
     <section id="case-study">
         <div class="section-label">First production</div>
-        <h2>Currently forging: The Empty House.</h2>
+        <h2>Test case: The Empty House.</h2>
         <p class="section-intro">
-            ScriptCast's first full-cast production is an adaptation of a classic supernatural short story.
-            It doubles as the pilot that validates the entire pipeline end-to-end.
+            A complete adaptation used to verify all stages of the pipeline end-to-end.
         </p>
 
         <div class="case-study">
@@ -837,163 +814,159 @@
             <h3>The Empty House</h3>
             <div class="meta">Algernon Blackwood · 1906 · approx. 45 min</div>
             <p>
-                A dramatized full-cast adaptation of one of Blackwood's most restrained ghost stories.
-                Multiple voices, ambience beds, music cues, SFX, spatial positioning, and mastering —
-                all described in a single YAML script, all produced by the pipeline.
+                A multi-character dramatized adaptation. Character voices, room tones, incidental music,
+                spatial coordinates, and EBU R128 loudness mastering are declared in a single script
+                file and compiled by the software.
             </p>
             <p>
-                The production is in progress. A preview will be released alongside the first ScriptCast build.
+                Audio samples and source scripts will be released alongside the first application build.
             </p>
         </div>
     </section>
 
     <section id="comparison">
         <div class="section-label">Comparison</div>
-        <h2>How ScriptCast is different.</h2>
+        <h2>Production workflows.</h2>
         <p class="section-intro">
-            An honest look at the tools and workflows used today to produce full-cast audio fiction,
-            and where a deterministic pipeline fits.
+            How scripted local processing compares to traditional digital audio workstations and hosted APIs.
         </p>
 
         <div class="comparison">
             <table>
                 <thead>
-                    <tr>
-                        <th>Approach</th>
-                        <th>Production model</th>
-                        <th>Strength</th>
-                        <th>Friction</th>
-                    </tr>
+                <tr>
+                    <th>Approach</th>
+                    <th>Workflow</th>
+                    <th>Advantage</th>
+                    <th>Trade-off</th>
+                </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Manual DAW editing</td>
-                        <td>Human performs every cut, mix, and cue</td>
-                        <td>Maximum creative control</td>
-                        <td>Hours per episode, not reproducible, single-editor bottleneck</td>
-                    </tr>
-                    <tr>
-                        <td>Cloud TTS + manual assembly</td>
-                        <td>Generate voice lines via API, mix by hand</td>
-                        <td>Easy access to high-quality voices</td>
-                        <td>Per-minute billing, uploads content to third parties, no pipeline</td>
-                    </tr>
-                    <tr>
-                        <td>Cloud audio drama SaaS</td>
-                        <td>Web UI, subscription, hosted inference</td>
-                        <td>No local setup required</td>
-                        <td>Zero privacy, ongoing cost, vendor lock-in, limited scripting</td>
-                    </tr>
-                    <tr class="highlight">
-                        <td>ScriptCast</td>
-                        <td>Declarative YAML script, local inference, deterministic pipeline</td>
-                        <td>Reproducible, scriptable, fully local, fixed cost</td>
-                        <td>Requires a local GPU and initial pipeline setup</td>
-                    </tr>
+                <tr>
+                    <td>Manual DAW editing</td>
+                    <td>Human edits, splices, and mixes every track by hand</td>
+                    <td>Total manual control</td>
+                    <td>Hours per scene, unversioned session binaries, manual rework on script updates</td>
+                </tr>
+                <tr>
+                    <td>Cloud TTS + manual assembly</td>
+                    <td>Generate voice lines through web APIs, import to DAW</td>
+                    <td>No local hardware requirements</td>
+                    <td>Recurring per-character cost, data sent to third parties, manual file naming</td>
+                </tr>
+                <tr>
+                    <td>Hosted audio drama platforms</td>
+                    <td>Web editor, subscription tiers, cloud rendering</td>
+                    <td>Runs in a browser</td>
+                    <td>Subscription lock-in, proprietary data formats, no local file control</td>
+                </tr>
+                <tr class="highlight">
+                    <td>ScriptCast</td>
+                    <td>Declarative YAML script, local GPU inference, local mix engine</td>
+                    <td>Re-runs from source text, versionable, zero data transfer, flat cost</td>
+                    <td>Requires local GPU hardware and initial setup</td>
+                </tr>
                 </tbody>
             </table>
         </div>
     </section>
 
     <section id="audience">
-        <div class="section-label">Who it's for</div>
-        <h2>Built for creators who think in scripts, not sessions.</h2>
+        <div class="section-label">Target users</div>
+        <h2>Engineered for scripted production.</h2>
         <p class="section-intro">
-            ScriptCast is designed for producers who want their audio fiction to be described, versioned,
-            and regenerated — not manually sculpted one take at a time.
+            For teams and developers who prefer text-driven workflows and version control over track dragging in a GUI.
         </p>
 
         <div class="audience-grid">
             <div class="audience-card">
-                <h3>Audio fiction podcasters</h3>
-                <p>You produce full-cast audio dramas and want a repeatable pipeline instead of assembling each episode by hand.</p>
+                <h3>Audio drama producers</h3>
+                <p>Run end-to-end multi-voice rendering and mixing from text scripts instead of manually assembling tracks.</p>
             </div>
             <div class="audience-card">
-                <h3>Indie audio studios</h3>
-                <p>You want a programmable production layer that integrates with local models and respects your existing asset library.</p>
+                <h3>Independent audio studios</h3>
+                <p>Integrate local neural voice models with your own SFX and music libraries under your own infrastructure.</p>
             </div>
             <div class="audience-card">
-                <h3>Audiobook producers</h3>
-                <p>You need multi-voice, dramatized renditions of public-domain works at scale, with chapter metadata and cover art embedded.</p>
+                <h3>Audiobook creators</h3>
+                <p>Produce multi-cast dramatizations of public domain literature with automated chaptering and tagging.</p>
             </div>
             <div class="audience-card">
-                <h3>Engineers who write fiction</h3>
-                <p>You prefer describing a scene in YAML over clicking through a DAW, and you want the whole thing in version control.</p>
+                <h3>Technical writers &amp; developers</h3>
+                <p>Maintain entire audio projects as code repositories with branch diffs and automated rebuilds.</p>
             </div>
         </div>
     </section>
 
     <section id="pricing">
         <div class="section-label">Pricing</div>
-        <h2>A desktop pipeline, priced like one.</h2>
+        <h2>Desktop software license.</h2>
         <p class="section-intro">
-            ScriptCast is distributed as professional desktop software, not as a per-minute or per-seat
-            subscription service.
+            Perpetual license model without usage meters, subscriptions, or forced account logins.
         </p>
 
         <div class="pricing-card">
             <div class="pricing-head">
                 <span class="pricing-label">Perpetual license</span>
-                <span class="pricing-note">Planned · pricing announced closer to launch</span>
+                <span class="pricing-note">Pricing announced at launch</span>
             </div>
             <ul>
-                <li>One-time purchase. The version you buy is yours to keep forever.</li>
-                <li>Optional annual upgrade plan for access to new major releases — cancel anytime and keep the last version you paid for.</li>
-                <li>Same model professional IDEs use. No lockout, no forced renewal, no cloud dependency.</li>
-                <li>Volume licensing available for studios and teams, without telemetry or online activation.</li>
+                <li>One-time purchase. Your license does not expire and runs offline indefinitely.</li>
+                <li>Optional maintenance plan for major version updates. Keep the last version paid for if canceled.</li>
+                <li>Runs entirely on your local machine with zero phone-home licensing checks.</li>
+                <li>Studio and multi-seat offline licenses available for commercial environments.</li>
             </ul>
         </div>
     </section>
 
     <section id="roadmap">
         <div class="section-label">Status &amp; Roadmap</div>
-        <h2>Honest about where we are.</h2>
+        <h2>Implementation progress.</h2>
         <p class="section-intro">
-            ScriptCast is under active development. Here is a transparent view of what exists today
-            and what is planned. No ship dates, no promises.
+            Current functionality and active tasks.
         </p>
 
         <div class="roadmap-list">
             <div class="roadmap-item">
-                <span class="roadmap-status shipped">Shipped</span>
+                <span class="roadmap-status shipped">Completed</span>
                 <div class="roadmap-text">
-                    <h3>Declarative YAML script parsing</h3>
-                    <p>Full schema validation across dialogue, cues, spatial parameters, mastering, chapters, and character registration.</p>
+                    <h3>YAML script parser &amp; validator</h3>
+                    <p>Schema parsing, cue validation, boundary checks, and character voice registries.</p>
                 </div>
             </div>
             <div class="roadmap-item">
-                <span class="roadmap-status shipped">Shipped</span>
+                <span class="roadmap-status shipped">Completed</span>
                 <div class="roadmap-text">
-                    <h3>Local ComfyUI orchestration</h3>
-                    <p>Deterministic workflow graph mutation and dispatch over HTTP and WebSocket, with multi-model transformer registry.</p>
+                    <h3>Local ComfyUI execution engine</h3>
+                    <p>In-memory graph modification, WebSocket dispatch, and multi-model transformer abstraction.</p>
                 </div>
             </div>
             <div class="roadmap-item">
-                <span class="roadmap-status shipped">Shipped</span>
+                <span class="roadmap-status shipped">Completed</span>
                 <div class="roadmap-text">
-                    <h3>Mix, master, and package</h3>
-                    <p>Deterministic ffmpeg filter graph, EBU R128 loudness normalization, true-peak limiting, and multi-format packaging with chapters and tags.</p>
+                    <h3>Mix, master, and container export</h3>
+                    <p>FFmpeg filter engine, stem loudness normalization, true-peak limiting, and multi-format tagging.</p>
                 </div>
             </div>
             <div class="roadmap-item">
                 <span class="roadmap-status progress">In progress</span>
                 <div class="roadmap-text">
-                    <h3>First full production</h3>
-                    <p>End-to-end validation of the pipeline with a complete full-cast adaptation of "The Empty House".</p>
+                    <h3>Pilot production</h3>
+                    <p>End-to-end stress testing with a full-length adaptation of "The Empty House".</p>
                 </div>
             </div>
             <div class="roadmap-item">
                 <span class="roadmap-status planned">Planned</span>
                 <div class="roadmap-text">
-                    <h3>Preview and distribution builds</h3>
-                    <p>Short preview samplers exported automatically alongside the master, for use as discovery assets on any distribution platform.</p>
+                    <h3>Automated sampler clips</h3>
+                    <p>Extract promotional audio segments and previews automatically during packaging.</p>
                 </div>
             </div>
             <div class="roadmap-item">
                 <span class="roadmap-status planned">Planned</span>
                 <div class="roadmap-text">
-                    <h3>Extended environment and DSP presets</h3>
-                    <p>Additional acoustic environments, reverb algorithms, and mastering targets to cover a wider range of source material.</p>
+                    <h3>Additional acoustic presets</h3>
+                    <p>Expanded reverb algorithms and impulse responses for complex outdoor and industrial spaces.</p>
                 </div>
             </div>
         </div>
