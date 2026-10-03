@@ -3,29 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Silo Forge — Local-first engineering tools</title>
+    <title>The Silo Forge — Local-first desktop engineering</title>
 
     <meta name="description"
-          content="Independent workshop building local-first, offline engineering tools and systems. No cloud dependencies, no telemetry, no third parties.">
+          content="Independent engineering workshop building local-first desktop software and taking direct contracts for desktop systems, hardware integration, and offline-first applications.">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="The Silo Forge">
-    <meta property="og:title" content="The Silo Forge — Local-first engineering tools">
+    <meta property="og:title" content="The Silo Forge — Local-first desktop engineering">
     <meta property="og:description"
-          content="Independent workshop building local-first, offline engineering tools and systems. No cloud dependencies, no telemetry, no third parties.">
+          content="Independent engineering workshop building local-first desktop software and taking direct contracts for desktop systems, hardware integration, and offline-first applications.">
     <meta property="og:url" content="https://thesiloforge.com/">
     <meta property="og:image" content="https://thesiloforge.com/og-hub.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="The Silo Forge — Local-first engineering tools">
+    <meta property="og:image:alt" content="The Silo Forge — Local-first desktop engineering">
     <meta property="og:locale" content="en_US">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="The Silo Forge — Local-first engineering tools">
+    <meta name="twitter:title" content="The Silo Forge — Local-first desktop engineering">
     <meta name="twitter:description"
-          content="Independent software workshop building local-first, offline-capable engineering tools.">
+          content="Local-first desktop software, built in-house and for other companies.">
     <meta name="twitter:image" content="https://thesiloforge.com/og-hub.png">
 
     <!-- Structured data -->
@@ -36,7 +36,7 @@
             "name": "The Silo Forge",
             "url": "https://thesiloforge.com/",
             "email": "contact@thesiloforge.com",
-            "description": "Independent software workshop building local-first, offline-capable engineering tools."
+            "description": "Independent engineering workshop building local-first desktop software and taking direct contracts for desktop systems, hardware integration, and offline-first applications."
         }
     </script>
 
@@ -59,9 +59,6 @@
             --text-primary: #E8EAED;
             --text-secondary: #8B92A0;
             --text-muted: #565D6B;
-            --accent-logstation: #00D9A3;
-            --accent-logstation-dim: #00D9A31A;
-            --accent-logstation-border: #00D9A340;
             --accent-scriptcast: #14B8A6;
             --accent-scriptcast-dim: #14B8A61A;
             --accent-scriptcast-border: #14B8A640;
@@ -273,11 +270,6 @@
             color: var(--text-muted);
         }
 
-        .product-tag.logstation {
-            color: var(--accent-logstation);
-            border-color: var(--accent-logstation-border);
-            background: var(--accent-logstation-dim);
-        }
 
         .product-tag.scriptcast {
             color: var(--accent-scriptcast);
@@ -315,6 +307,66 @@
             border: 1px solid var(--border);
             padding: 2px 6px;
             border-radius: 3px;
+        }
+
+        .case-study {
+            margin-bottom: 88px;
+        }
+
+        .case-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent-scriptcast);
+            border-radius: 10px;
+            padding: 26px 28px;
+        }
+
+        .case-card .case-label {
+            font-family: var(--mono);
+            font-size: 11px;
+            color: var(--accent-scriptcast);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 12px;
+        }
+
+        .case-card h3 {
+            font-family: var(--mono);
+            font-size: 17px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 6px;
+        }
+
+        .case-card .meta {
+            font-family: var(--mono);
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+
+        .case-card p {
+            font-size: 14px;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            max-width: 600px;
+        }
+
+        .case-card p + p {
+            margin-top: 12px;
+        }
+
+        .case-card .case-link {
+            display: inline-block;
+            margin-top: 16px;
+            font-family: var(--mono);
+            font-size: 12px;
+            color: var(--accent-scriptcast);
+        }
+
+        .case-card .case-link:hover {
+            text-decoration: underline;
+            text-underline-offset: 3px;
         }
 
         .about {
@@ -387,6 +439,10 @@
                 padding: 20px 20px;
             }
 
+            .case-card {
+                padding: 22px 20px;
+            }
+
             .product-card.active::after {
                 top: 20px;
                 right: 20px;
@@ -409,6 +465,7 @@
         </a>
         <nav>
             <a href="#work">Software</a>
+            <a href="#case-study">Case Study</a>
             <a href="/services/">Services</a>
             <a href="#about">About</a>
             <a href="mailto:contact@thesiloforge.com">Contact</a>
@@ -421,30 +478,17 @@
         <span class="dot"></span>INDEPENDENT SOFTWARE WORKSHOP
     </div>
 
-    <h1>Local-first tools.<br><span class="dim">Built for engineers who keep data on their own metal.</span></h1>
+    <h1>Local-first desktop engineering.<br><span class="dim">Built in-house and for other companies.</span></h1>
 
     <p class="subhead">
-        The Silo Forge is an engineering workshop building offline desktop software and specialized systems.
-        No cloud infrastructure, no telemetry pipelines, and no third-party accounts between you and your work.
+        The Silo Forge is an independent engineering workshop. It develops its own desktop software, such as
+        ScriptCast, and takes direct contracts for desktop systems, hardware integration, and offline-first
+        applications.
     </p>
 
     <section id="work">
         <div class="section-label">Software & Systems</div>
         <div class="products">
-
-            <a href="/logstation/" class="product-card active" style="display: none;">
-                <div class="product-head">
-                    <span class="product-name">LogStation</span>
-                    <span class="product-tag logstation">Desktop Application</span>
-                </div>
-                <p class="product-desc">
-                    Desktop investigation workstation for raw Android bugreports and Logcat dumps.
-                    Indexes multi-gigabyte log trees in memory without uploading files to third-party dashboards.
-                </p>
-                <div class="product-meta">
-                    <code>C#</code> <code>Avalonia</code> <code>Multi-GB In-Memory Index</code>
-                </div>
-            </a>
 
             <a href="/scriptcast/" class="product-card active">
                 <div class="product-head">
@@ -452,9 +496,10 @@
                     <span class="product-tag scriptcast">Desktop Workstation</span>
                 </div>
                 <p class="product-desc">
-                    Desktop production workstation for full-cast audio dramas. Parses structured YAML scripts
-                    into local ComfyUI voice synthesis pipelines, mixes multi-stem timelines with parametric
-                    acoustic filters, and masters deliverables to EBU R128 / BBC broadcast standards.
+                    Desktop production workstation for full-cast audio dramas. Parses structured YAML scripts,
+                    drives local voice and sound synthesis through ComfyUI, mixes multi-stem timelines with FFmpeg
+                    filter graphs and timeline-based ducking, and masters to EBU R128 or Audible / ACX targets
+                    before packaging FLAC, MP3 and M4B. Not currently distributed.
                 </p>
                 <div class="product-meta">
                     <code>C# / Avalonia</code> <code>ComfyUI WebSocket Client</code> <code>FFmpeg / EBU R128</code>
@@ -468,28 +513,48 @@
                     <span class="product-tag services">B2B Contract</span>
                 </div>
                 <p class="product-desc">
-                    Senior engineering for mission-critical desktop systems, hardware integration (serial protocols,
-                    CNC, kiosks),
-                    and offline-first architectures. Direct contracts via W-8BEN.
+                    Desktop software and hardware integration under direct contract: CNC and industrial machine
+                    control, unattended kiosks, enterprise data synchronization, and offline-first clients.
+                    18 years of experience.
                 </p>
                 <div class="product-meta">
-                    <code>.NET / C#</code> <code>Hardware Interfacing</code> <code>Async Execution</code>
+                    <code>.NET / C#</code> <code>JavaFX</code> <code>Serial Protocols</code>
+                    <code>Offline-first</code>
                 </div>
             </a>
 
         </div>
     </section>
 
+    <section id="case-study" class="case-study">
+        <div class="section-label">Case Study</div>
+        <div class="case-card">
+            <div class="case-label">Produced with ScriptCast</div>
+            <h3>The Empty House</h3>
+            <div class="meta">Algernon Blackwood · 1906 · Target runtime: approx. 45 minutes</div>
+            <p>
+                Pilot episode of a planned series of full-cast adaptations of public-domain ghost stories.
+                Characters, dialogue, ambience, music, spatial placement, and mastering targets are defined in a
+                single YAML script and rendered locally.
+            </p>
+            <p>
+                The pilot is the end-to-end test of the pipeline: script parsing, multi-voice generation, stem
+                normalization, timeline mixing and ducking, broadcast loudness mastering, and chaptered M4B
+                packaging. Testing is in progress.
+            </p>
+            <a href="/scriptcast/#pipeline" class="case-link">See the pipeline →</a>
+        </div>
+    </section>
+
     <section id="about" class="about">
         <div class="section-label">About</div>
         <p>
-            The Silo Forge develops <code>local-first</code> desktop software for technical environments.
-            Applications are distributed as native binaries that run entirely on your local storage and memory.
-            Your logs, source files, and binaries never leave your machine.
+            The Silo Forge is a one-person workshop with 18 years of desktop and hardware-integration engineering
+            behind it.
         </p>
         <p>
-            Standalone tools use a perpetual license model. Buy a license once and keep the binary working indefinitely,
-            with no phone-home mechanisms or mandatory subscriptions.
+            Software built here is <code>local-first</code>: it runs on local hardware, without cloud services
+            or telemetry.
         </p>
     </section>
 </main>
