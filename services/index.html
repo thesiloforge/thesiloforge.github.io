@@ -6,14 +6,14 @@
     <title>Systems Engineering & Consulting — The Silo Forge</title>
 
     <meta name="description"
-          content="Senior systems engineering contracts. Desktop applications, hardware communication protocols, and offline-first software.">
+          content="Senior systems engineering contracts. Desktop applications, hardware communication protocols, and offline-first software. Proof of work: ScriptCast.">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="The Silo Forge">
     <meta property="og:title" content="Systems Engineering & Consulting — The Silo Forge">
     <meta property="og:description"
-          content="Direct B2B engineering contracts for desktop architecture, hardware protocols, and offline-first software.">
+          content="Direct B2B engineering contracts for desktop architecture, hardware protocols, and offline-first software. Proof of work: ScriptCast.">
     <meta property="og:url" content="https://thesiloforge.com/services/">
     <meta property="og:image" content="https://thesiloforge.com/og-services.png">
     <meta property="og:image:width" content="1200">
@@ -25,8 +25,23 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Systems Engineering & Consulting — The Silo Forge">
     <meta name="twitter:description"
-          content="Direct B2B engineering contracts for desktop architecture, hardware protocols, and offline-first software.">
+          content="Direct B2B engineering contracts for desktop architecture, hardware protocols, and offline-first software. Proof of work: ScriptCast.">
     <meta name="twitter:image" content="https://thesiloforge.com/og-services.png">
+
+    <!-- Structured data -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "ProfessionalService",
+            "name": "The Silo Forge — Systems Engineering & Consulting",
+            "url": "https://thesiloforge.com/services/",
+            "email": "contact@thesiloforge.com",
+            "description": "Direct B2B engineering contracts for desktop architecture, hardware protocols, and offline-first software.",
+            "sameAs": [
+                "https://www.linkedin.com/in/TU-PERFIL-LINKEDIN"
+            ]
+        }
+    </script>
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -274,6 +289,82 @@
             border-radius: 4px;
         }
 
+        .service-link {
+            display: inline-block;
+            margin-top: 12px;
+            font-family: var(--mono);
+            font-size: 12px;
+            color: var(--accent);
+        }
+
+        .service-link:hover {
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        /* Proof of Work */
+        .proof-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent);
+            border-radius: 8px;
+            padding: 24px 26px;
+        }
+
+        .proof-card .proof-label {
+            font-family: var(--mono);
+            font-size: 11px;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 10px;
+        }
+
+        .proof-card h3 {
+            font-family: var(--mono);
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 6px;
+        }
+
+        .proof-card .meta {
+            font-family: var(--mono);
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-bottom: 14px;
+        }
+
+        .proof-card p {
+            font-size: 13.5px;
+            line-height: 1.65;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin-bottom: 12px;
+        }
+
+        .proof-card p + p {
+            margin-top: 10px;
+        }
+
+        .proof-card .proof-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 14px;
+        }
+
+        .proof-card .proof-links a {
+            font-family: var(--mono);
+            font-size: 12px;
+            color: var(--accent);
+        }
+
+        .proof-card .proof-links a:hover {
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
         .terms-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -331,6 +422,24 @@
             border-color: var(--accent);
         }
 
+        .contact-alt {
+            margin-top: 16px;
+            font-family: var(--mono);
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .contact-alt a {
+            color: var(--text-secondary);
+            transition: color 0.15s;
+        }
+
+        .contact-alt a:hover {
+            color: var(--text-primary);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
         footer {
             border-top: 1px solid var(--border);
             padding: 28px 24px;
@@ -358,6 +467,17 @@
 
         footer a:hover {
             color: var(--text-secondary);
+        }
+
+        .footer-links {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links .sep {
+            color: var(--border-strong);
         }
 
         @media (max-width: 600px) {
@@ -393,6 +513,7 @@
         </a>
         <nav class="top-nav">
             <a href="#areas">Focus Areas</a>
+            <a href="#proof">Proof of Work</a>
             <a href="#terms">Engagement Terms</a>
             <a href="#contact">Contact</a>
         </nav>
@@ -410,7 +531,8 @@
         Independent engineering contracts for desktop architecture, hardware protocols,
         and local processing runtimes. Eighteen years building clients that run reliably offline
         and interface directly with machinery and external peripherals. Local media processing is more recent work,
-        done in my own product, <a href="/scriptcast/" style="color: var(--accent);">ScriptCast</a>.
+        done in my own product, <a href="/scriptcast/" style="color: var(--accent);">ScriptCast</a> — an in-house
+        project that serves as the end-to-end test of what this workshop can build.
     </p>
 
     <section id="areas">
@@ -470,6 +592,7 @@
                     <code>Audio DSP Envelopes</code>
                     <code>Avalonia UI</code>
                 </div>
+                <a href="/scriptcast/" class="service-link">See ScriptCast as a case study →</a>
             </div>
 
             <div class="service-card">
@@ -486,6 +609,36 @@
                     <code>Schema Migration</code>
                     <code>Multi-Threaded I/O</code>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROOF OF WORK -->
+    <section id="proof">
+        <div class="section-label">Proof of Work</div>
+        <h2>Case Study: ScriptCast</h2>
+        <p class="section-intro">
+            An in-house project, built as the end-to-end test of what this workshop can deliver.
+        </p>
+
+        <div class="proof-card">
+            <div class="proof-label">In-house Project</div>
+            <h3>ScriptCast</h3>
+            <div class="meta">C# / Avalonia · ComfyUI WebSocket client · FFmpeg / EBU R128 · ATL tagging</div>
+            <p>
+                A local-first audio drama production workstation that parses structured YAML scripts, drives local
+                voice and sound synthesis through ComfyUI, mixes multi-stem timelines with FFmpeg filter graphs and
+                timeline-based ducking, and masters to EBU R128 or Audible / ACX targets before packaging FLAC,
+                MP3 and M4B.
+            </p>
+            <p>
+                Its pilot production, <em>The Empty House</em> (Algernon Blackwood, 1906), is the end-to-end test of
+                the pipeline: script parsing, multi-voice generation, stem normalization, timeline mixing and
+                ducking, broadcast loudness mastering, and chaptered M4B packaging.
+            </p>
+            <div class="proof-links">
+                <a href="/scriptcast/">ScriptCast →</a>
+                <a href="/scriptcast/#pipeline">The Empty House →</a>
             </div>
         </div>
     </section>
@@ -548,6 +701,9 @@
             <a href="mailto:contact@thesiloforge.com?subject=Contract%20Engineering%20Inquiry" class="contact-email">
                 contact@thesiloforge.com
             </a>
+            <div class="contact-alt">
+                Or connect via <a href="https://www.linkedin.com/in/TU-PERFIL-LINKEDIN" target="_blank" rel="noopener noreferrer">LinkedIn</a>.
+            </div>
         </div>
     </section>
 </main>
@@ -557,7 +713,11 @@
         <p>
             <a href="/">the_silo_forge</a> / services — <span id="year"></span>
         </p>
-        <a href="mailto:contact@thesiloforge.com">contact@thesiloforge.com</a>
+        <div class="footer-links">
+            <a href="https://www.linkedin.com/in/byronsdec" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <span class="sep">·</span>
+            <a href="mailto:contact@thesiloforge.com">contact@thesiloforge.com</a>
+        </div>
     </div>
 </footer>
 

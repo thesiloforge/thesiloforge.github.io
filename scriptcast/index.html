@@ -3,46 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ScriptCast — Local audio drama production pipeline</title>
+    <title>ScriptCast — Case Study — The Silo Forge</title>
 
     <meta name="description"
-          content="Desktop pipeline that compiles declarative YAML scripts into mastered audio and video deliverables using local inference engines and FFmpeg.">
+          content="Case study: ScriptCast, an in-house local-first pipeline that compiles declarative YAML scripts into mastered audio and video deliverables. Built by The Silo Forge as proof of what the workshop can build.">
 
     <!-- Open Graph -->
-    <meta property="og:type" content="website">
+    <meta property="og:type" content="article">
     <meta property="og:site_name" content="The Silo Forge">
-    <meta property="og:title" content="ScriptCast — Local audio drama production pipeline">
+    <meta property="og:title" content="ScriptCast — Case Study — The Silo Forge">
     <meta property="og:description"
-          content="Desktop pipeline that compiles declarative YAML scripts into mastered audio and video deliverables using local inference engines and FFmpeg.">
+          content="An in-house local-first pipeline that compiles YAML scripts into mastered audio and video. Case study and proof of work.">
     <meta property="og:url" content="https://thesiloforge.com/scriptcast/">
     <meta property="og:image" content="https://thesiloforge.com/og-scriptcast.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="ScriptCast — Local audio drama production pipeline">
+    <meta property="og:image:alt" content="ScriptCast — Case Study">
     <meta property="og:locale" content="en_US">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="ScriptCast — Local audio drama production pipeline">
+    <meta name="twitter:title" content="ScriptCast — Case Study — The Silo Forge">
     <meta name="twitter:description"
-          content="Desktop pipeline that compiles declarative YAML scripts into mastered audio and video deliverables using local inference engines and FFmpeg.">
+          content="An in-house local-first pipeline that compiles YAML scripts into mastered audio and video. Case study and proof of work.">
     <meta name="twitter:image" content="https://thesiloforge.com/og-scriptcast.png">
 
     <!-- Structured data -->
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
-            "@type": "SoftwareApplication",
-            "name": "ScriptCast",
-            "applicationCategory": "MultimediaApplication",
-            "operatingSystem": "Windows, Linux, macOS",
-            "description": "Desktop pipeline that compiles declarative YAML scripts into mastered audio and video deliverables using local inference engines and FFmpeg.",
+            "@type": "TechArticle",
+            "headline": "ScriptCast — Case Study",
+            "description": "An in-house local-first pipeline that compiles declarative YAML scripts into mastered audio and video deliverables.",
             "url": "https://thesiloforge.com/scriptcast/",
+            "author": {
+                "@type": "Organization",
+                "name": "The Silo Forge",
+                "url": "https://thesiloforge.com/"
+            },
             "publisher": {
                 "@type": "Organization",
                 "name": "The Silo Forge",
                 "url": "https://thesiloforge.com/"
-            }
+            },
+            "sameAs": [
+                "https://www.linkedin.com/in/TU-PERFIL-LINKEDIN"
+            ]
         }
     </script>
 
@@ -174,6 +180,14 @@
             color: var(--text-primary);
         }
 
+        nav.top-nav a.services-link {
+            color: var(--accent);
+        }
+
+        nav.top-nav a.services-link:hover {
+            color: var(--text-primary);
+        }
+
         main {
             max-width: 780px;
             margin: 0 auto;
@@ -224,7 +238,7 @@
             font-size: 17px;
             line-height: 1.65;
             color: var(--text-secondary);
-            max-width: 620px;
+            max-width: 640px;
             margin-bottom: 40px;
         }
 
@@ -539,11 +553,6 @@
             border: 1px solid #FAC77540;
         }
 
-        .roadmap-status.planned {
-            color: var(--text-muted);
-            border: 1px solid var(--border-strong);
-        }
-
         .roadmap-text h3 {
             font-size: 14px;
             font-weight: 500;
@@ -555,6 +564,36 @@
             font-size: 13px;
             line-height: 1.6;
             color: var(--text-secondary);
+        }
+
+        .cta {
+            margin-top: 24px;
+            padding: 26px 28px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent);
+            border-radius: 10px;
+        }
+
+        .cta p {
+            font-size: 15px;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin-bottom: 16px;
+        }
+
+        .cta a {
+            display: inline-block;
+            font-family: var(--mono);
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--accent);
+        }
+
+        .cta a:hover {
+            text-decoration: underline;
+            text-underline-offset: 3px;
         }
 
         footer {
@@ -584,6 +623,17 @@
 
         footer a:hover {
             color: var(--text-secondary);
+        }
+
+        .footer-links {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links .sep {
+            color: var(--border-strong);
         }
 
         @media (max-width: 680px) {
@@ -633,28 +683,30 @@
             <span class="brand">the_silo_forge</span>
             <span style="color: var(--text-muted);">/</span>
             <span>ScriptCast</span>
-            <span class="version-tag">Desktop (MVP)</span>
+            <span class="version-tag">Case Study</span>
         </a>
         <nav class="top-nav">
             <a href="#pipeline">Pipeline</a>
             <a href="#capabilities">Capabilities</a>
-            <a href="#case-study">Pilot Benchmark</a>
-            <a href="#roadmap">Status</a>
+            <a href="#case-study">Pilot</a>
+            <a href="#built">What's Built</a>
+            <a href="/services/" class="services-link">Services →</a>
         </nav>
     </div>
 </header>
 
 <main>
     <div class="statusline">
-        <span class="dot"></span>OFFLINE <span class="sep">/</span> LOCAL-FIRST <span class="sep">/</span> ZERO TELEMETRY <span class="sep">/</span> MULTILINGUAL
+        <span class="dot"></span>IN-HOUSE PROJECT <span class="sep">/</span> CASE STUDY <span class="sep">/</span> BUILT BY THE SILO FORGE
     </div>
 
-    <h1>Declarative script<br><span class="dim">to mastered audio &amp; video.</span></h1>
+    <h1>An in-house pipeline,<br><span class="dim">built end-to-end.</span></h1>
 
     <p class="subhead">
-        ScriptCast compiles YAML production scripts into mastered audio and video files (FLAC, MP3, M4B, MP4)
-        using local inference engines via ComfyUI and an automated FFmpeg DSP pipeline. Runs offline on your
-        workstation without external service dependencies.
+        ScriptCast is an in-house project by The Silo Forge: a local-first pipeline that compiles declarative
+        YAML scripts into mastered audio and video deliverables (FLAC, MP3, M4B, MP4), using local inference
+        engines via ComfyUI and an automated FFmpeg DSP pipeline. It exists as the end-to-end test of what this
+        workshop can build — and as proof of what it can build for you.
     </p>
 
     <div class="code-block">
@@ -879,7 +931,7 @@
     </section>
 
     <section id="case-study">
-        <div class="section-label">Catalogue Production</div>
+        <div class="section-label">Pilot</div>
         <h2>Pilot benchmark: The Empty House.</h2>
         <p class="section-intro">
             Production test suite validating batch orchestration and DSP performance against an end-to-end screenplay.
@@ -925,44 +977,44 @@
         </div>
     </section>
 
-    <section id="roadmap">
-        <div class="section-label">Status &amp; Roadmap</div>
-        <h2>Implementation status.</h2>
+    <section id="built">
+        <div class="section-label">What's Built</div>
+        <h2>Implementation notes.</h2>
         <p class="section-intro">
-            Current functional milestones and test coverage status.
+            What has been built and what is being validated. This is a case study of a working system, not a product roadmap.
         </p>
 
         <div class="roadmap-list">
             <div class="roadmap-item">
-                <span class="roadmap-status shipped">Completed</span>
+                <span class="roadmap-status shipped">Built</span>
                 <div class="roadmap-text">
                     <h3>Avalonia Desktop Studio &amp; YAML Parser</h3>
                     <p>Cross-platform GUI with virtualized item lists, script lifecycle persistence, in-process SoundFlow MiniAudio playback, and multi-language editing dialogs.</p>
                 </div>
             </div>
             <div class="roadmap-item">
-                <span class="roadmap-status shipped">Completed</span>
+                <span class="roadmap-status shipped">Built</span>
                 <div class="roadmap-text">
                     <h3>Modular ComfyUI Local Inference Client</h3>
                     <p>HTTP/WebSocket prompt queuing and execution tracking for CosyVoice, Breeze TTS, OmniVoice, VoxCPM, and Stable Audio.</p>
                 </div>
             </div>
             <div class="roadmap-item">
-                <span class="roadmap-status shipped">Completed</span>
+                <span class="roadmap-status shipped">Built</span>
                 <div class="roadmap-text">
                     <h3>Deterministic DSP, Ducking &amp; Master Engine</h3>
                     <p>Timeline-anchored frame-evaluated ducking envelopes, continuous pan sweeps, equal-power loop tiling, and two-pass loudness mastering (EBU-R128, ATSC-A/85, Podcast-AES, Audible-ACX).</p>
                 </div>
             </div>
             <div class="roadmap-item">
-                <span class="roadmap-status shipped">Completed</span>
+                <span class="roadmap-status shipped">Built</span>
                 <div class="roadmap-text">
                     <h3>Packaging &amp; Hardware Video Rendering</h3>
                     <p>Master FLAC export, ID3v2 MP3, chaptered M4B with embedded artwork via ATL, promotional sampler extraction, and NVENC/libx264 1080p MP4 video delivery.</p>
                 </div>
             </div>
             <div class="roadmap-item">
-                <span class="roadmap-status shipped">Completed</span>
+                <span class="roadmap-status shipped">Built</span>
                 <div class="roadmap-text">
                     <h3>Automated Unit &amp; Integration Test Suite</h3>
                     <p>Unit test suite covering core domain contracts, FFmpeg filter generation, ComfyUI graph transformers, and ViewModels using MockFileSystem and NSubstitute.</p>
@@ -977,6 +1029,15 @@
             </div>
         </div>
     </section>
+
+    <!-- CTA toward services -->
+    <section class="cta">
+        <p>
+            Need something like this for your company — desktop systems, hardware integration, offline-first
+            applications, or local processing pipelines? I take direct B2B contracts.
+        </p>
+        <a href="/services/">See services and engagement terms →</a>
+    </section>
 </main>
 
 <footer>
@@ -984,7 +1045,11 @@
         <p>
             <a href="/">the_silo_forge</a> / ScriptCast — <span id="year"></span>
         </p>
-        <a href="mailto:contact@thesiloforge.com">contact@thesiloforge.com</a>
+        <div class="footer-links">
+            <a href="https://www.linkedin.com/in/byronsdec" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <span class="sep">·</span>
+            <a href="mailto:contact@thesiloforge.com">contact@thesiloforge.com</a>
+        </div>
     </div>
 </footer>
 

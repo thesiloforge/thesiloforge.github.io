@@ -6,14 +6,14 @@
     <title>The Silo Forge — Local-first desktop engineering</title>
 
     <meta name="description"
-          content="Independent engineering workshop building local-first desktop software and taking direct contracts for desktop systems, hardware integration, and offline-first applications.">
+          content="Independent engineering workshop taking direct contracts for desktop systems, hardware integration, and offline-first applications. Proof of work: ScriptCast, an in-house audio drama production pipeline.">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="The Silo Forge">
     <meta property="og:title" content="The Silo Forge — Local-first desktop engineering">
     <meta property="og:description"
-          content="Independent engineering workshop building local-first desktop software and taking direct contracts for desktop systems, hardware integration, and offline-first applications.">
+          content="Direct contracts for desktop systems, hardware integration, and offline-first applications. Proof of work: ScriptCast.">
     <meta property="og:url" content="https://thesiloforge.com/">
     <meta property="og:image" content="https://thesiloforge.com/og-hub.png">
     <meta property="og:image:width" content="1200">
@@ -25,7 +25,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="The Silo Forge — Local-first desktop engineering">
     <meta name="twitter:description"
-          content="Local-first desktop software, built in-house and for other companies.">
+          content="Direct contracts for desktop systems, hardware integration, and offline-first applications. Proof of work: ScriptCast.">
     <meta name="twitter:image" content="https://thesiloforge.com/og-hub.png">
 
     <!-- Structured data -->
@@ -36,7 +36,10 @@
             "name": "The Silo Forge",
             "url": "https://thesiloforge.com/",
             "email": "contact@thesiloforge.com",
-            "description": "Independent engineering workshop building local-first desktop software and taking direct contracts for desktop systems, hardware integration, and offline-first applications."
+            "description": "Independent engineering workshop taking direct contracts for desktop systems, hardware integration, and offline-first applications.",
+            "sameAs": [
+                "https://www.linkedin.com/in/TU-PERFIL-LINKEDIN"
+            ]
         }
     </script>
 
@@ -270,7 +273,6 @@
             color: var(--text-muted);
         }
 
-
         .product-tag.scriptcast {
             color: var(--accent-scriptcast);
             border-color: var(--accent-scriptcast-border);
@@ -369,6 +371,36 @@
             text-underline-offset: 3px;
         }
 
+        .cta {
+            margin-bottom: 88px;
+            padding: 26px 28px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent-services);
+            border-radius: 10px;
+        }
+
+        .cta p {
+            font-size: 15px;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin-bottom: 16px;
+        }
+
+        .cta a {
+            display: inline-block;
+            font-family: var(--mono);
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--accent-services);
+        }
+
+        .cta a:hover {
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
         .about {
             padding-top: 40px;
             border-top: 1px solid var(--border);
@@ -394,6 +426,40 @@
             border: 1px solid var(--border);
             padding: 1px 6px;
             border-radius: 4px;
+        }
+
+        .connect {
+            margin-top: 28px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            font-family: var(--mono);
+            font-size: 12px;
+            color: var(--text-muted);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 6px 10px;
+        }
+
+        .connect .label {
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-muted);
+        }
+
+        .connect a {
+            color: var(--text-secondary);
+            transition: color 0.15s;
+        }
+
+        .connect a:hover {
+            color: var(--text-primary);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        .connect .sep {
+            color: var(--border-strong);
         }
 
         footer {
@@ -464,9 +530,8 @@
             <span><span class="prompt">/</span> the_silo_forge</span>
         </a>
         <nav>
-            <a href="#work">Software</a>
-            <a href="#case-study">Case Study</a>
             <a href="/services/">Services</a>
+            <a href="#proof">Proof of Work</a>
             <a href="#about">About</a>
             <a href="mailto:contact@thesiloforge.com">Contact</a>
         </nav>
@@ -478,34 +543,18 @@
         <span class="dot"></span>INDEPENDENT SOFTWARE WORKSHOP
     </div>
 
-    <h1>Local-first desktop engineering.<br><span class="dim">Built in-house and for other companies.</span></h1>
+    <h1>Local-first desktop engineering</h1>
 
     <p class="subhead">
-        The Silo Forge is an independent engineering workshop. It develops its own desktop software, such as
-        ScriptCast, and takes direct contracts for desktop systems, hardware integration, and offline-first
-        applications.
+        The Silo Forge is an independent engineering workshop. I take direct contracts for desktop systems,
+        hardware integration, and offline-first applications — and I build my own software to prove the
+        pipeline works.
     </p>
 
-    <section id="work">
-        <div class="section-label">Software & Systems</div>
+    <!-- SERVICES (primary offer) -->
+    <section id="services">
+        <div class="section-label">Services</div>
         <div class="products">
-
-            <a href="/scriptcast/" class="product-card active">
-                <div class="product-head">
-                    <span class="product-name">ScriptCast</span>
-                    <span class="product-tag scriptcast">Desktop Workstation</span>
-                </div>
-                <p class="product-desc">
-                    Desktop production workstation for full-cast audio dramas. Parses structured YAML scripts,
-                    drives local voice and sound synthesis through ComfyUI, mixes multi-stem timelines with FFmpeg
-                    filter graphs and timeline-based ducking, and masters to EBU R128 or Audible / ACX targets
-                    before packaging FLAC, MP3 and M4B. Not currently distributed.
-                </p>
-                <div class="product-meta">
-                    <code>C# / Avalonia</code> <code>ComfyUI WebSocket Client</code> <code>FFmpeg / EBU R128</code>
-                    <code>ATL Tagging</code>
-                </div>
-            </a>
 
             <a href="/services/" class="product-card active">
                 <div class="product-head">
@@ -515,7 +564,7 @@
                 <p class="product-desc">
                     Desktop software and hardware integration under direct contract: CNC and industrial machine
                     control, unattended kiosks, enterprise data synchronization, and offline-first clients.
-                    18 years of experience.
+                    18 years of experience, direct senior execution, asynchronous communication.
                 </p>
                 <div class="product-meta">
                     <code>.NET / C#</code> <code>JavaFX</code> <code>Serial Protocols</code>
@@ -526,36 +575,76 @@
         </div>
     </section>
 
-    <section id="case-study" class="case-study">
-        <div class="section-label">Case Study</div>
-        <div class="case-card">
-            <div class="case-label">Produced with ScriptCast</div>
-            <h3>The Empty House</h3>
-            <div class="meta">Algernon Blackwood · 1906 · Target runtime: approx. 45 minutes</div>
-            <p>
-                Pilot episode of a planned series of full-cast adaptations of public-domain ghost stories.
-                Characters, dialogue, ambience, music, spatial placement, and mastering targets are defined in a
-                single YAML script and rendered locally.
-            </p>
-            <p>
-                The pilot is the end-to-end test of the pipeline: script parsing, multi-voice generation, stem
-                normalization, timeline mixing and ducking, broadcast loudness mastering, and chaptered M4B
-                packaging. Testing is in progress.
-            </p>
-            <a href="/scriptcast/#pipeline" class="case-link">See the pipeline →</a>
+    <!-- PROOF OF WORK (ScriptCast as case study) -->
+    <section id="proof">
+        <div class="section-label">Proof of Work</div>
+        <div class="products">
+
+            <a href="/scriptcast/" class="product-card active">
+                <div class="product-head">
+                    <span class="product-name">ScriptCast</span>
+                    <span class="product-tag scriptcast">In-house Project</span>
+                </div>
+                <p class="product-desc">
+                    An in-house audio drama production workstation, built as the end-to-end test of what this
+                    workshop can do. Parses structured YAML scripts, drives local voice and sound synthesis through
+                    ComfyUI, mixes multi-stem timelines with FFmpeg filter graphs and timeline-based ducking, and
+                    masters to EBU R128 or Audible / ACX targets before packaging FLAC, MP3 and M4B.
+                </p>
+                <div class="product-meta">
+                    <code>C# / Avalonia</code> <code>ComfyUI WebSocket Client</code> <code>FFmpeg / EBU R128</code>
+                    <code>ATL Tagging</code>
+                </div>
+            </a>
+
+            <div class="case-card">
+                <div class="case-label">Produced with ScriptCast</div>
+                <h3>The Empty House</h3>
+                <div class="meta">Algernon Blackwood · 1906 · Target runtime: approx. 45 minutes</div>
+                <p>
+                    Pilot episode of a planned series of full-cast adaptations of public-domain ghost stories.
+                    Characters, dialogue, ambience, music, spatial placement, and mastering targets are defined in a
+                    single YAML script and rendered locally.
+                </p>
+                <p>
+                    The pilot is the end-to-end test of the pipeline: script parsing, multi-voice generation, stem
+                    normalization, timeline mixing and ducking, broadcast loudness mastering, and chaptered M4B
+                    packaging. Testing is in progress.
+                </p>
+                <a href="/scriptcast/#pipeline" class="case-link">See the pipeline →</a>
+            </div>
+
         </div>
     </section>
 
+    <!-- CTA toward services -->
+    <section class="cta">
+        <p>
+            Need something like this for your company — desktop systems, hardware integration, offline-first
+            applications, or local processing pipelines? I take direct B2B contracts.
+        </p>
+        <a href="/services/">See services and engagement terms →</a>
+    </section>
+
+    <!-- ABOUT -->
     <section id="about" class="about">
         <div class="section-label">About</div>
         <p>
             The Silo Forge is a one-person workshop with 18 years of desktop and hardware-integration engineering
-            behind it.
+            behind it. Available for direct B2B contracts: asynchronous communication, direct senior execution,
+            no intermediary management.
         </p>
         <p>
             Software built here is <code>local-first</code>: it runs on local hardware, without cloud services
             or telemetry.
         </p>
+
+        <div class="connect">
+            <span class="label">Connect</span>
+            <a href="https://www.linkedin.com/in/byronsdec" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <span class="sep">·</span>
+            <a href="mailto:contact@thesiloforge.com">contact@thesiloforge.com</a>
+        </div>
     </section>
 </main>
 
