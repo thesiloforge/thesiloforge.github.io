@@ -6,14 +6,14 @@
     <title>ScriptCast — Case Study — The Silo Forge</title>
 
     <meta name="description"
-          content="Case study: ScriptCast, an in-house local-first pipeline that compiles declarative YAML scripts into mastered audio and video deliverables. Built by The Silo Forge as proof of what the workshop can build.">
+          content="Case study: ScriptCast, an in-house local-first pipeline that compiles declarative YAML scripts into mastered audio and video files.">
 
     <!-- Open Graph -->
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="The Silo Forge">
     <meta property="og:title" content="ScriptCast — Case Study — The Silo Forge">
     <meta property="og:description"
-          content="An in-house local-first pipeline that compiles YAML scripts into mastered audio and video. Case study and proof of work.">
+          content="An in-house local-first pipeline that compiles YAML scripts into mastered audio and video. Case study.">
     <meta property="og:url" content="https://thesiloforge.com/scriptcast/">
     <meta property="og:image" content="https://thesiloforge.com/og-scriptcast.png">
     <meta property="og:image:width" content="1200">
@@ -25,7 +25,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="ScriptCast — Case Study — The Silo Forge">
     <meta name="twitter:description"
-          content="An in-house local-first pipeline that compiles YAML scripts into mastered audio and video. Case study and proof of work.">
+          content="An in-house local-first pipeline that compiles YAML scripts into mastered audio and video. Case study.">
     <meta name="twitter:image" content="https://thesiloforge.com/og-scriptcast.png">
 
     <!-- Structured data -->
@@ -34,7 +34,7 @@
             "@context": "https://schema.org",
             "@type": "TechArticle",
             "headline": "ScriptCast — Case Study",
-            "description": "An in-house local-first pipeline that compiles declarative YAML scripts into mastered audio and video deliverables.",
+            "description": "An in-house local-first pipeline that compiles declarative YAML scripts into mastered audio and video files.",
             "url": "https://thesiloforge.com/scriptcast/",
             "author": {
                 "@type": "Organization",
@@ -704,9 +704,8 @@
 
     <p class="subhead">
         ScriptCast is an in-house project by The Silo Forge: a local-first pipeline that compiles declarative
-        YAML scripts into mastered audio and video deliverables (FLAC, MP3, M4B, MP4), using local inference
-        engines via ComfyUI and an automated FFmpeg DSP pipeline. It exists as the end-to-end test of what this
-        workshop can build — and as proof of what it can build for you.
+        YAML scripts into mastered audio and video files (FLAC, MP3, M4B, MP4), using a local Python inference
+        microservice and an automated FFmpeg DSP pipeline.
     </p>
 
     <div class="code-block">
@@ -729,7 +728,7 @@
 
             <span class="key">mastering</span>:
             <span class="key">audioProfile</span>: <span class="str">EBU-R128</span>       <span class="cmt"># Target -23.0 LUFS, -1.0 dBTP, LRA 20.0</span>
-            <span class="key">videoProfile</span>: <span class="str">YouTube</span>        <span class="cmt"># 1080p 30fps (h264_nvenc / libx264), AAC 384k</span>
+            <span class="key">videoProfile</span>: <span class="str">YouTube</span>        <span class="cmt"># 1080p 24fps (h264_nvenc / libx264), AAC 384k</span>
             <span class="key">limiterEnabled</span>: <span class="num">true</span>
             <span class="key">limiterAttackMs</span>: <span class="num">5</span>
             <span class="key">limiterReleaseMs</span>: <span class="num">50</span>
@@ -784,30 +783,30 @@
 
     <section id="pipeline">
         <div class="section-label">Pipeline</div>
-        <h2>From script to mastered deliverables.</h2>
+        <h2>From script to mastered files.</h2>
         <p class="section-intro">
-            Deterministic processing executed locally from start to finish. Audio files are validated, synthesized, aligned, normalized, and packaged without leaving the workstation.
+            Processing runs locally from start to finish. Audio files are validated, synthesized, aligned, normalized, and packaged without leaving the workstation.
         </p>
 
         <div class="pipeline-steps">
             <div class="pipeline-step">
                 <div class="pipeline-num">1</div>
                 <div class="pipeline-text">
-                    <h3>Preflight Sanity &amp; Dependency Verification</h3>
-                    <p>Scans the physical project hierarchy, validates referenced audio stems across localized category directories, checks ComfyUI API endpoint health, and verifies FFmpeg/FFprobe system binaries.</p>
+                    <h3>Preflight Checks</h3>
+                    <p>Scans the physical project hierarchy, validates referenced audio stems across localized category directories, queries the inference service health endpoint, and verifies FFmpeg/FFprobe system binaries.</p>
                 </div>
             </div>
             <div class="pipeline-step">
                 <div class="pipeline-num">2</div>
                 <div class="pipeline-text">
-                    <h3>Local Workflow Synthesis &amp; Granular Queue</h3>
-                    <p>Dispatches text, reference audio, and generation parameters to ComfyUI over HTTP and WebSocket. Supports modular TTS and audio engine templates (CosyVoice, Breeze, OmniVoice, VoxCPM, and Stable Audio) with individual item regeneration.</p>
+                    <h3>Local Synthesis &amp; Queue</h3>
+                    <p>Dispatches text, reference audio, and generation parameters to the inference service over HTTP. Supports modular voice and audio engines (Breeze for voice synthesis and voice design, Stable Audio for cues) with individual item regeneration.</p>
                 </div>
             </div>
             <div class="pipeline-step">
                 <div class="pipeline-num">3</div>
                 <div class="pipeline-text">
-                    <h3>Stem Normalization &amp; Persistent YAML Cache</h3>
+                    <h3>Stem Normalization &amp; Cache</h3>
                     <p>Calibrates individual audio files to category reference levels (Dialogue: -20.0 LUFS, Music: -32.0 LUFS, Ambience: -34.0 LUFS, SFX: -6.0 dBFS/dBTP). Measurements are stored in <code>lufs.yaml</code> to skip re-measuring unchanged files.</p>
                 </div>
             </div>
@@ -869,7 +868,7 @@
                     </svg>
                 </div>
                 <div class="feature-text">
-                    <h3>Granular Asset Synthesis &amp; Task Queue</h3>
+                    <h3>Asset Synthesis &amp; Queue</h3>
                     <p>Synthesize entire productions or enqueue individual dialogue takes, character voice profiles, sound effects, and ambient beds into an asynchronous task queue with real-time execution tracking.</p>
                 </div>
             </div>
@@ -881,7 +880,7 @@
                     </svg>
                 </div>
                 <div class="feature-text">
-                    <h3>Calibrated Production Profiles</h3>
+                    <h3>Production Profiles</h3>
                     <p>Configurable mastering presets targeting industry standards: EBU-R128 (-23.0 LUFS, -1.0 dBTP), ATSC-A/85 (-24.0 LUFS, -2.0 dBTP), Podcast-AES (-16.0 LUFS, -1.0 dBTP), and Audible-ACX (-20.0 LUFS, -3.0 dBTP).</p>
                 </div>
             </div>
@@ -932,20 +931,20 @@
 
     <section id="case-study">
         <div class="section-label">Pilot</div>
-        <h2>Pilot benchmark: The Empty House.</h2>
+        <h2>Pilot: The Empty House.</h2>
         <p class="section-intro">
-            Production test suite validating batch orchestration and DSP performance against an end-to-end screenplay.
+            Production run exercising batch orchestration and DSP on a complete screenplay.
         </p>
 
         <div class="case-study">
-            <div class="case-label">Integration Benchmark</div>
+            <div class="case-label">Integration Run</div>
             <h3>The Empty House</h3>
             <div class="meta">Algernon Blackwood · 1906 · Multi-Cast Drama · Mastering: EBU-R128 / YouTube MP4</div>
             <p>
-                End-to-end integration benchmark validating batch processing across a 176-dialogue screenplay, 15 looped ambient beds, 21 music cues, and 20 SFX cues using discrete acoustic environment presets (Room, Hall, Cave, Telephone).
+                Integration run across a 176-dialogue screenplay, 15 looped ambient beds, 21 music cues, and 20 SFX cues using acoustic environment presets (Room, Hall, Cave, Telephone).
             </p>
             <p>
-                The complete pipeline verifies ComfyUI batch inference, deterministic ducking matrix generation, stem normalization, two-pass mastering, metadata tagging, and hardware-accelerated video multiplexing into distribution deliverables.
+                The pipeline exercises batched inference through the local microservice, ducking matrix generation, stem normalization, two-pass mastering, metadata tagging, and video encoding into distribution files.
             </p>
 
             <div class="specs-grid">
@@ -995,36 +994,36 @@
             <div class="roadmap-item">
                 <span class="roadmap-status shipped">Built</span>
                 <div class="roadmap-text">
-                    <h3>Modular ComfyUI Local Inference Client</h3>
-                    <p>HTTP/WebSocket prompt queuing and execution tracking for CosyVoice, Breeze TTS, OmniVoice, VoxCPM, and Stable Audio.</p>
+                    <h3>Local Inference Client</h3>
+                    <p>HTTP request dispatch and execution tracking against a local Python inference microservice (Breeze, Stable Audio).</p>
                 </div>
             </div>
             <div class="roadmap-item">
                 <span class="roadmap-status shipped">Built</span>
                 <div class="roadmap-text">
-                    <h3>Deterministic DSP, Ducking &amp; Master Engine</h3>
+                    <h3>DSP, Ducking &amp; Mastering</h3>
                     <p>Timeline-anchored frame-evaluated ducking envelopes, continuous pan sweeps, equal-power loop tiling, and two-pass loudness mastering (EBU-R128, ATSC-A/85, Podcast-AES, Audible-ACX).</p>
                 </div>
             </div>
             <div class="roadmap-item">
                 <span class="roadmap-status shipped">Built</span>
                 <div class="roadmap-text">
-                    <h3>Packaging &amp; Hardware Video Rendering</h3>
+                    <h3>Packaging &amp; Video Rendering</h3>
                     <p>Master FLAC export, ID3v2 MP3, chaptered M4B with embedded artwork via ATL, promotional sampler extraction, and NVENC/libx264 1080p MP4 video delivery.</p>
                 </div>
             </div>
             <div class="roadmap-item">
                 <span class="roadmap-status shipped">Built</span>
                 <div class="roadmap-text">
-                    <h3>Automated Unit &amp; Integration Test Suite</h3>
-                    <p>Unit test suite covering core domain contracts, FFmpeg filter generation, ComfyUI graph transformers, and ViewModels using MockFileSystem and NSubstitute.</p>
+                    <h3>Unit Tests</h3>
+                    <p>Unit test suite covering core domain contracts, FFmpeg filter generation, video packaging and inference client adapters, and ViewModels using MockFileSystem and NSubstitute.</p>
                 </div>
             </div>
             <div class="roadmap-item">
                 <span class="roadmap-status progress">In progress</span>
                 <div class="roadmap-text">
                     <h3>Pilot Production Execution ("The Empty House")</h3>
-                    <p>End-to-end batch synthesis and master deliverable export of the complete 176-line screenplay.</p>
+                    <p>End-to-end batch synthesis and master file export of the complete 176-line screenplay.</p>
                 </div>
             </div>
         </div>
